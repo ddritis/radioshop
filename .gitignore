@@ -1,0 +1,16 @@
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE specific files
+.vscode/
+
+# PHP/Server logs
+*.log
+error_log
+
+# Database configuration (protecting credentials)
+config/database.json
+
+# Dependency manager (if used later)
+vendor/
