@@ -2,45 +2,53 @@
 // index.php
 session_start();
 
-// Autoloading simulation (for now we require them manually)
-require_once 'controller/BaseController.php'; // Load the base class first
+// 1. Load Core Components
 require_once 'model/DbConfig.php';
 require_once 'model/Database.php';
+require_once 'controller/BaseController.php';
 
-// Get the page and action from URL, or set defaults
+// 2. Routing Configuration
 $page   = $_GET['page']   ?? 'home';
 $action = $_GET['action'] ?? 'index';
 
-// Convert 'product' to 'ProductController' (PascalCase)
+// 3. Dynamic Controller Mapping
+// Example: 'auth' -> 'AuthController'
 $controllerName = ucfirst($page) . 'Controller';
 $controllerFile = "controller/$controllerName.php";
 
-// Check if the controller file exists
+if (isset($_GET['debug'])) {
+    echo "File cercato: " . $controllerFile . "<br>";
+    echo "Classe cercata: " . $controllerName . "<br>";
+    echo "Metodo cercato: " . $action . "<br>";
+}
+
 if (file_exists($controllerFile)) {
     require_once $controllerFile;
-    
-    // Check if the class exists inside the file
+
     if (class_exists($controllerName)) {
         $controllerObject = new $controllerName();
-        
-        // Check if the requested method (action) exists in the class
+
         if (method_exists($controllerObject, $action)) {
-            // Security Check for Admin: you can centralize it here!
-            if (strpos($page, 'admin') !== false) {
+
+            // 4. Centralized Security Layer
+            // If the page starts with 'admin', check privileges
+            if (str_starts_with($page, 'admin')) {
                 if (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] !== true) {
                     header("Location: index.php?page=home");
                     exit();
                 }
             }
-            
-            // Execute the action (e.g., $controller->index())
+
+            // 5. Dispatch the request
             $controllerObject->$action();
         } else {
-            // Method not found: 404 behavior
+            // Action not found: redirect to default
             header("Location: index.php?page=home");
+            exit();
         }
     }
 } else {
-    // Controller file not found: 404 behavior
+    // Controller file not found: redirect to default (Page Not Found behavior)
     header("Location: index.php?page=home");
+    exit();
 }

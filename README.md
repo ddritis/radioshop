@@ -6,9 +6,11 @@ This is a professional E-commerce web application built with PHP following the M
 
 ## Project Documentation
 
+# Project Structure
 For a detailed view of the project's architecture and file organization, please refer to the following document:
 
 * 📂 [Project Structure and Naming Conventions](doc/main_structure.md)
+* 📊 [Entity-Relationship Diagram (ERD)](doc/ERD.md)
 
 ## Tech Stack
 
@@ -16,3 +18,7 @@ For a detailed view of the project's architecture and file organization, please 
 * **Database:** MySQL via PDO (with Prepared Statements)
 * **Architecture:** MVC (Model-View-Controller)
 * **Frontend:** HTML5, CSS3
+
+---
+
+![Modello ER Chen](doc/progettazione_DB/ecommerce_chen_model.png)
