@@ -1,1 +1,165 @@
-<mxfile scale="1" border="0"><diagram name="Ecommerce Chen Model" id="0">1ZtZb+I8FIZ/TW9HWQjLZQYCE6kDKFDNfL1BHmKC9YUYGdPt14+BBOKl0FGb2GkvmhxnsZ+85/h46Z3b37yMCNiuf+IYpneOFb/cuYM7x7Etz2J/DpbXk8Xrdk6GhKA4v+himKE3WNyZW/cohjvuQopxStGWNy5xlsEl5WyAEPzMX7bCKf/WLUigZJgtQSpbf6GYrnNr27IuBT8gStbFq62iZAOKq3PDbg1i/FwyucGd2ycY09PR5qUP0wO9AszpvuE7peeaEZjRj9ywp+xCeLrrCaT7vIUP82A8D/Iq0tei4ay228MhYVRBlhzM35/XiMLZFiwPBc/sgzPbmm5SdmazQ4L3WQwPb7PY2QpndJY/71AqVzdvwRMkFL6UTHn1RxBvICWv7JK81M1J5lo6k30ufZnCti59lEKEIBdDcn7yBRc7yImp6S1TpMTXvw8bw+/sVTlA26sR4G6/hQTEG5RJDGcP0yDyBz/DcSMwdnmKLbdGiiADCQErtAQSRX/sjyJ/GPb9RlB0BYxtBUW3IoooixFBb29YghiOB2EUPj5OGsGw3b7NsLKAyLpXZpER9v0oCu7vm0HQtXiCbp0yxCRGmdylTKJBOG5Gj+J2eHxenQpcAUr3RA6EQ38+f4iaEQW7ggfbdo0AtwTHmFLZhafRZDCZz5vhwrbtakxrloDCBBMky7Dvz4PRJAqbIUS71RIiYY2BMEU7ijJZh/fhbB6OGyJDEaDTq5EgQQl4t0eOwpG/qK9bjsFufSz8IrK9ngBW5d9ehWDf6aePWOvqrL8cqtDxeFadUBdotwALNqaWoIazK/FyjTd/9rvbKCtx79ve3VHgan0JrjVgvNjQT8L1w0xaZ5UUAxOvZlhshNcUVp7n3WLVrozVFu92CMZycJtOZrMwGFyJbBqRuY7gjB3ZGXuVxS64WkE28pAzvmA4DNjQw1CZiQGsVmYJzKBiqDYKxsG1kZpGXp32bV7dyngtWYMQY7ZgSZ1ErT8Zz8PgWtahk5vgm8oZFasycAStlMyicBhE4XyyMFNttiPIzVXlY9VhO+uN5brN1psyka1WbypmpuvN1osNbFn1j4qTyPnTqR+ZqzfbFaebVOTsyshtCXx7A8pJu+Dx0WeKGxgqORGcUyc4aEtQYBb7hy0C7CzDGeQBvNvgHd6TZf6E8pI6BSSBtPhK/PgWxtwuAxkRgSmg6Alyb/pUc50Kmis2q9xkbn1cQ3tb/9Ze+ILob3ZsffPys/9KJYODZK3i5DU/+TQjcQn86zDlt04xYlUrJRWtb1bv8uu0OP9rOYJfndqRP0Rgf67Vxz6HJ4UnVvv+P/pgCv7A9DtY/p8c58b6OMXkeJu7Ov589Jtw2uT9lJ9Y0aDbtkmgRB5lVuLOAw2sOjWxKoKDXQoNl0DxieBQHUN1APCsHufxXe9DDi8/x2tdfc5JJ18SOLrKbyxvDKrRH85ziWV3ELaQaPCGnkmR40qI5acYNYAqUkozSIlAuCSKW8HTgcpWotLkfldExc/B6iDlmCUqHkgZVnn1Ugco1yRQZRi8osoz1DowtUzCxOMog+I2XengpB5Z6IpQXMDmBSVP4evAZdj4QobCQZN2sehAph5maFIYv0ePVxi31qGDlDpZ1yYujod5ulIn7Jp09X5HKC8F6Zi+NCxnl6GI+tKcZp3n441Q162opVVahmXuHA/TVKVO3rVlW9xea15W4oqiDlqG5fAikjIw3kN1wDIqkb8WsPgVVx2oDEvieSBlWNxG/spJsdPLv0+fJpsv/4XuBn8B</diagram></mxfile>
+<mxfile host="Electron">
+  <diagram name="Ecommerce Chen Model" id="0">
+    <mxGraphModel dx="1873" dy="1169" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="utente" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="UTENTE" vertex="1">
+          <mxGeometry height="50" width="120" x="30" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="cliente" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="CLIENTE" vertex="1">
+          <mxGeometry height="50" width="120" x="160" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="superadmin" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="SUPERADMIN" vertex="1">
+          <mxGeometry height="50" width="120" x="160" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="anagrafica" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="ANAGRAFICA" vertex="1">
+          <mxGeometry height="50" width="130" x="380" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="indirizzo" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="INDIRIZZO" vertex="1">
+          <mxGeometry height="50" width="120" x="660" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="carrello" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="CARRELLO" vertex="1">
+          <mxGeometry height="50" width="130" x="300" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="ordine" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="ORDINE" vertex="1">
+          <mxGeometry height="50" width="120" x="370" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="fattura" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="FATTURA" vertex="1">
+          <mxGeometry height="50" width="120" x="860" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="prodotto" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="PRODOTTO" vertex="1">
+          <mxGeometry height="50" width="120" x="1130" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="categoria" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="CATEGORIA" vertex="1">
+          <mxGeometry height="50" width="130" x="1440" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="listino" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="LISTINO" vertex="1">
+          <mxGeometry height="50" width="130" x="1440" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="rigacarrello" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=0;fontStyle=1;dashed=1;" value="RIGA_CARRELLO" vertex="1">
+          <mxGeometry height="50" width="150" x="990" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="rigaordine" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=0;fontStyle=1;dashed=1;" value="RIGA_ORDINE" vertex="1">
+          <mxGeometry height="50" width="150" x="960" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="r_is_a_cli" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;fontStyle=1;" value="ISA" vertex="1">
+          <mxGeometry height="40" width="70" x="140" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="r_has_anag" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;fontStyle=1;" value="HA" vertex="1">
+          <mxGeometry height="40" width="70" x="250" y="245" as="geometry" />
+        </mxCell>
+        <mxCell id="r_has_ind" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;fontStyle=1;" value="HA" vertex="1">
+          <mxGeometry height="40" width="60" x="555" y="245" as="geometry" />
+        </mxCell>
+        <mxCell id="r_possiede" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;fontStyle=1;" value="POSSIEDE" vertex="1">
+          <mxGeometry height="50" width="90" x="320" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="r_effettua" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;fontStyle=1;" value="EFFETTUA" vertex="1">
+          <mxGeometry height="50" width="90" x="540" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="r_genera" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;fontStyle=1;" value="GENERA" vertex="1">
+          <mxGeometry height="50" width="80" x="760" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="r_contiene_car" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;fontStyle=1;" value="CONTIENE" vertex="1">
+          <mxGeometry height="50" width="100" x="720" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="r_rif_car" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;fontStyle=1;" value="RIFERITO_A" vertex="1">
+          <mxGeometry height="50" width="100" x="1260" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="r_contiene_ord" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;fontStyle=1;" value="CONTIENE" vertex="1">
+          <mxGeometry height="50" width="100" x="720" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="r_rif_ord" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;fontStyle=1;" value="RIFERITO_A" vertex="1">
+          <mxGeometry height="50" width="100" x="1120" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="r_appartiene" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;fontStyle=1;" value="APPARTIENE" vertex="1">
+          <mxGeometry height="50" width="110" x="1330" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="r_prezzato" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;fontStyle=1;" value="PREZZATO_DA" vertex="1">
+          <mxGeometry height="50" width="110" x="1330" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="utente" style="endArrow=none;html=1;" target="r_is_a_cli">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="r_is_a_cli" style="endArrow=none;html=1;" target="cliente">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="r_is_a_cli" style="endArrow=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="superadmin">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="124.09090909090924" y="600" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="cliente" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="r_has_anag" value="1,1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="r_has_anag" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="anagrafica" value="1,1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="anagrafica" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" value="1,1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="509" y="265" as="sourcePoint" />
+            <mxPoint x="554" y="265" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="r_has_ind" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="indirizzo" value="1,N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="cliente" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="r_possiede" value="1,1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="r_possiede" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="carrello" value="1,1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="cliente" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="r_effettua" value="1,N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="r_effettua" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="ordine" value="1,1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="ordine" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="r_genera" value="1,1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" edge="1" parent="1" source="r_genera" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="fattura" value="1,1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" edge="1" parent="1" source="carrello" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="r_contiene_car" value="1,N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e16" edge="1" parent="1" source="r_contiene_car" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="rigacarrello" value="1,1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e17" edge="1" parent="1" source="prodotto" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="r_rif_car" value="1,N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e18" edge="1" parent="1" source="r_rif_car" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="rigacarrello" value="1,1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e19" edge="1" parent="1" source="ordine" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="r_contiene_ord" value="1,N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e20" edge="1" parent="1" source="r_contiene_ord" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="rigaordine" value="1,1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e21" edge="1" parent="1" source="prodotto" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="r_rif_ord" value="1,N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e22" edge="1" parent="1" source="r_rif_ord" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="rigaordine" value="1,1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e23" edge="1" parent="1" source="categoria" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="r_appartiene" value="1,N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e24" edge="1" parent="1" source="r_appartiene" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="prodotto" value="1,1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e25" edge="1" parent="1" source="prodotto" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="r_prezzato" value="1,N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e26" edge="1" parent="1" source="r_prezzato" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="listino" value="1,1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
