@@ -1,0 +1,51 @@
+/* public/css/style.css */
+
+/* Giallo personalizzato per bottoni e header card se il warning di base è troppo spento */
+.btn-warning,
+.text-bg-warning,
+.border-warning {
+    background-color: #ffc107 !important;
+    border-color: #ffc107 !important;
+}
+
+/* Stile per le card come nel tuo mockup */
+.card {
+    transition: transform 0.2s;
+    border-width: 2px;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    padding: 20px;
+    background-color: #f8f9fa;
+    max-height: 250px;
+    object-fit: contain;
+}
+
+/* Stile per la navbar personalizzata */
+.navbar {
+    background-color: #ffc107 !important;
+    /* Giallo warning standard */
+}
+
+/* Stile per le immagini delle card */
+.card-img-top {
+    height: 200px;
+    object-fit: contain;
+    padding: 15px;
+}
+
+/* Allineamento per le tabelle specifiche nei modal */
+.td-list {
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+/* Footer alerts */
+.myDiv footer {
+    margin-top: 20px;
+}

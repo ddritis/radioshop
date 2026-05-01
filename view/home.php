@@ -1,65 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+// view/home.php
+?>
+<header class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <h1 class="display-4 fw-normal"><?php echo htmlspecialchars($pageTitle); ?></h1>
+    <p class="fs-5 text-body-secondary">Importatore ufficiale per l'Italia di RaspberryPi e OrangePi.</p>
+</header>
 
-<head>
-    <meta charset="UTF-8">
-    <title><?php echo htmlspecialchars($pageTitle); ?></title>
-    <style>
-        .product-grid {
-            display: flex;
-            gap: 20px;
-        }
-
-        .card {
-            border: 1px solid #ccc;
-            padding: 15px;
-            border-radius: 8px;
-        }
-    </style>
-</head>
-
-<body>
-
-    <nav style="background: #333; color: #fff; padding: 10px; display: flex; justify-content: space-between;">
-        <div>
-            <a href="index.php?page=home" style="color: #fff; text-decoration: none; font-weight: bold;">MY E-COMMERCE</a>
-        </div>
-        <div>
-            <?php if (isset($_SESSION['userName'])): ?>
-                <span>Ciao, <strong><?php echo htmlspecialchars($_SESSION['userName']); ?></strong></span>
-
-                <a href="index.php?page=user&action=orders" style="color: #fff; margin-left: 15px; text-decoration: none;">I miei Ordini</a>
-
-                <?php if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin']): ?>
-                    <a href="index.php?page=admin&action=dashboard" style="color: #ffca28; margin-left: 15px;">Admin Panel</a>
-                <?php endif; ?>
-
-                <a href="index.php?page=auth&action=logout" style="color: #ff5252; margin-left: 15px; font-weight: bold;">Logout</a>
-            <?php else: ?>
-                <a href="index.php?page=auth&action=login" style="color: #fff; margin-left: 15px;">Accedi</a>
-                <a href="index.php?page=auth&action=register" style="color: #fff; margin-left: 15px;">Registrati</a>
-            <?php endif; ?>
-        </div>
-    </nav>
-
-    <h1><?php echo htmlspecialchars($pageTitle); ?></h1>
-
-    <div class="product-grid">
+<main class="container-md">
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
         <?php if (empty($products)): ?>
-            <p>Non ci sono prodotti disponibili al momento.</p>
+            <div class="col-12">
+                <p class="alert alert-info">Non ci sono prodotti disponibili al momento.</p>
+            </div>
         <?php else: ?>
             <?php foreach ($products as $p): ?>
-                <div class="card">
-                    <h3><?php echo htmlspecialchars($p['product_name']); ?></h3>
-                    <p><?php echo htmlspecialchars($p['description']); ?></p>
-                    <p><strong>Price: €<?php echo number_format($p['price'], 2); ?></strong></p>
-                    <a href="index.php?page=product&action=show&id=<?php echo $p['id_product']; ?>">
-                        View Details
-                    </a>
+                <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm border-warning">
+                        <div class="card-header py-3 text-bg-warning border-warning">
+                            <h4 class="my-0 fw-normal"><?php echo htmlspecialchars($p['product_name']); ?></h4>
+                        </div>
+
+                        <?php
+                        // Gestione dinamica del percorso immagine[cite: 1]
+                        // Se image_path è vuoto o nullo, utilizzo il placeholder[cite: 3]
+                        $imageFile = !empty($p['image_path']) ? $p['image_path'] : 'placeholder.png';
+                        $imagePath = "public/images/products/" . $imageFile;
+                        ?>
+
+                        <img src="<?php echo htmlspecialchars($imagePath); ?>"
+                            class="card-img-top p-3"
+                            alt="<?php echo htmlspecialchars($p['product_name']); ?>"
+                            style="height: 250px; object-fit: contain;">
+
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title">€<?php echo number_format($p['price'], 2); ?></h1>
+                            <p class="mt-3 mb-4">
+                                <?php echo htmlspecialchars(substr($p['description'], 0, 100)) . '...'; ?>
+                            </p>
+
+                            <a href="index.php?page=product&action=show&id=<?php echo $p['id_product']; ?>"
+                                class="w-100 btn btn-lg btn-warning">
+                                Dettagli Prodotto
+                            </a>
+                        </div>
+                    </div>
                 </div>
             <?php endforeach; ?>
         <?php endif; ?>
     </div>
-</body>
-
-</html>
+</main>
