@@ -39,7 +39,7 @@ class Product
             AND pl.valid_from <= CURDATE()";
 
         $stmt = $this->db->prepare($sql);
-        // Usiamo il prepared statement per evitare SQL Injection, proprio come volevi
+        // Uso il prepared statement per evitare SQL Injection
         $stmt->execute(['id' => $id]);
         return $stmt->fetch();
     }

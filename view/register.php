@@ -1,4 +1,4 @@
-<h1>Register a New Account</h1>
+<h1>Registra un nuovo account</h1>
 
 <?php if (isset($error)): ?>
     <p style="color: red;"><?php echo htmlspecialchars($error); ?></p>
@@ -9,7 +9,7 @@
     <input type="text" name="last_name" placeholder="Last Name" required><br>
     <input type="email" name="email" placeholder="Email" required><br>
     <input type="password" name="password" placeholder="Password" required><br>
-    <button type="submit">Create Account</button>
+    <button type="submit">Crea Account</button>
 </form>
 
-<p>Already have an account? <a href="index.php?page=auth&action=login">Login here</a></p>
+<p>Hai già un account? <a href="index.php?page=auth&action=login">Accedi qui</a></p>

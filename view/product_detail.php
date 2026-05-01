@@ -8,4 +8,4 @@
     <input type="number" name="quantity" value="1" min="1" style="width: 50px;">
     <button type="submit">Aggiungi al Carrello</button>
 </form>
-<a href="index.php?page=home">Back to Catalog</a>
+<a href="index.php?page=home">Torna al catalogo</a>

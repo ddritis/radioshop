@@ -8,36 +8,35 @@ class DbConfig
     public $dbName;
 
     /**
-     * Constructor that loads database configuration from a JSON file.
-     * Uses try-catch to handle potential file or parsing errors.
+     * Costruttore che utilizzo per caricare la configurazione del database da un file JSON.
+     * Implemento un blocco try-catch per gestire eventuali errori di lettura del file o di parsing dei dati.
      */
     public function __construct()
     {
         $path = 'config/database.json';
 
         try {
-            // Check if the configuration file exists
+            // Verifico se il file di configurazione esiste nel percorso stabilito.
             if (!file_exists($path)) {
-                throw new Exception("Configuration file not found at: " . $path);
+                throw new Exception("File di configurazione non trovato in: " . $path);
             }
 
             $jsonContent = file_get_contents($path);
             $config = json_decode($jsonContent, true);
 
-            // Check if JSON decoding failed (null) or if required keys are missing
+            // Verifico se la decodifica JSON è fallita o se mancano le chiavi obbligatorie (host, database).
             if ($config === null || !isset($config['host'], $config['database'])) {
-                throw new Exception("Invalid or corrupted JSON format in: " . $path);
+                throw new Exception("Formato JSON non valido o corrotto in: " . $path);
             }
 
-            // Assign values to properties
+            // Assegno i valori estratti alle proprietà della classe per renderli disponibili.
             $this->host = $config['host'];
             $this->username = $config['username'];
             $this->password = $config['password'];
             $this->dbName = $config['database'];
         } catch (Exception $e) {
-            // In a real scenario, you might log this error to a file
-            // For now, we stop execution with a clear message
-            die("Database Configuration Error: " . $e->getMessage());
+            // In caso di errore critico, interrompo l'esecuzione mostrando un messaggio chiaro.
+            die("Errore di configurazione del Database: " . $e->getMessage());
         }
     }
 }

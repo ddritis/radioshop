@@ -6,13 +6,13 @@ require_once 'model/Product.php';
 class AdminController extends BaseController
 {
     /**
-     * Pagina principale della Dashboard Admin
+     * Pagina principale della dashboard Admin
      */
     public function dashboard()
     {
         $productModel = new Product();
 
-        // Recuperiamo tutti i prodotti per mostrarli in una tabella gestionale
+        // Chiamo il metodo per avere tutti i prodotti da mostrare nella tabella
         $allProducts = $productModel->getAllActive();
 
         $viewData = [
@@ -20,7 +20,7 @@ class AdminController extends BaseController
             'products'  => $allProducts
         ];
 
-        // Carichiamo la vista dedicata
+        // Uso la vista dedicata
         $this->renderView('admin_dashboard', $viewData);
     }
 }

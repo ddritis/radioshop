@@ -46,7 +46,7 @@
 
     <div class="product-grid">
         <?php if (empty($products)): ?>
-            <p>No products available at the moment.</p>
+            <p>Non ci sono prodotti disponibili al momento.</p>
         <?php else: ?>
             <?php foreach ($products as $p): ?>
                 <div class="card">
