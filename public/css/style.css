@@ -1,6 +1,6 @@
 /* public/css/style.css */
 
-/* Giallo personalizzato per bottoni e header card se il warning di base è troppo spento */
+/* Giallo personalizzato per bottoni e header card */
 .btn-warning,
 .text-bg-warning,
 .border-warning {
@@ -8,7 +8,7 @@
     border-color: #ffc107 !important;
 }
 
-/* Stile per le card come nel tuo mockup */
+/* Stile per le card */
 .card {
     transition: transform 0.2s;
     border-width: 2px;
