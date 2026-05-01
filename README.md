@@ -22,3 +22,7 @@ For a detailed view of the project's architecture and file organization, please 
 ---
 
 ![Modello ER Chen](doc/progettazione_DB/ecommerce_chen_model.png)
+
+---
+
+![Screenhot](doc/screenshot01.png)
