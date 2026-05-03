@@ -1,4 +1,5 @@
 # radioshop - E-commerce MVC Project
+![Cookie banner](doc/screenshot03.png)
 
 ITIS C. Zuccante - Esercizio di creazione di un sito web e-commerce in linguaggio PHP ed usando il pattern MVC.
 
@@ -25,4 +26,5 @@ For a detailed view of the project's architecture and file organization, please 
 
 ---
 
-![Screenhot](doc/screenshot01.png)
+![Screenshot](doc/screenshot02.png)
+
