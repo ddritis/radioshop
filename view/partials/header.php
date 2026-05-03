@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($pageTitle ?? 'RADIOSHOP'); ?></title>
 
-    <!-- 1. Bootstrap CSS (Fondamentale per la grafica) -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 1. Bootstrap CSS (Caricamento locale per funzionamento offline) -->
+    <link href="public/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- 2. CSS personalizzato (Se presente in public/css) -->
+    <!-- 2. CSS personalizzato (Caricato dopo per sovrascrivere Bootstrap) -->
     <link rel="stylesheet" href="public/css/style.css">
 </head>
 
@@ -80,3 +80,22 @@
             </div>
         </div>
     </nav>
+    <?php
+    // Cookie
+    if (isset($_COOKIE['gdpr_accepted']) && $_COOKIE['gdpr_accepted'] === 'true') {
+        // NOP
+    }
+    ?>
+    <!-- GDPR Cookie Banner -->
+    <div id="cookieConsent" class="bg-danger text-white py-3 fixed-bottom border-top border-danger shadow-lg" style="display: none; z-index: 1050;">
+        <div class="container-lg d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <div class="mb-2 mb-md-0 small">
+                🍪 <strong>Informativa:</strong> Utilizziamo cookie tecnici necessari per il funzionamento del carrello, la gestione delle sessioni e la sicurezza.
+            </div>
+            <div>
+                <button id="btnAcceptCookies" class="btn btn-warning btn-sm fw-bold px-4">Ho capito</button>
+            </div>
+        </div>
+    </div>
+
+</body>

@@ -15,13 +15,13 @@ class Product
      */
     public function getAllActive()
     {
-        // Query che prende il prezzo valido oggi (valid_to è NULL o futuro)
-        $sql = "SELECT p.id_product, p.product_name, p.description, pl.price 
-                FROM products p
-                JOIN price_lists pl ON p.id_product = pl.id_product
-                WHERE p.is_active = 1 
-                AND (pl.valid_to IS NULL OR pl.valid_to >= CURDATE())
-                AND pl.valid_from <= CURDATE()";
+        // AGGIUNTO: p.image_path nella SELECT
+        $sql = "SELECT p.id_product, p.product_name, p.description, p.image_path, pl.price 
+            FROM products p
+            JOIN price_lists pl ON p.id_product = pl.id_product
+            WHERE p.is_active = 1 
+            AND (pl.valid_to IS NULL OR pl.valid_to >= CURDATE())
+            AND pl.valid_from <= CURDATE()";
 
         $stmt = $this->db->prepare($sql);
         $stmt->execute();

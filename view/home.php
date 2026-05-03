@@ -21,10 +21,17 @@
                         </div>
 
                         <?php
-                        // Gestione dinamica del percorso immagine[cite: 1]
-                        // Se image_path è vuoto o nullo, utilizzo il placeholder[cite: 3]
-                        $imageFile = !empty($p['image_path']) ? $p['image_path'] : 'placeholder.png';
-                        $imagePath = "public/images/products/" . $imageFile;
+                        // Gestione dinamica del percorso (Architettura Web)
+                        // Usiamo trim() per evitare che spazi vuoti nel DB rompano il confronto
+                        $dbFileName = trim($p['image_path']);
+
+                        if (!empty($dbFileName) && $dbFileName !== 'placeholder.png') {
+                            // Se c'è un file specifico, lo cerco nella sottocartella products
+                            $imagePath = "public/images/products/" . $dbFileName;
+                        } else {
+                            // Fallback: il placeholder è nella cartella images, non in products
+                            $imagePath = "public/images/placeholder.png";
+                        }
                         ?>
 
                         <img src="<?php echo htmlspecialchars($imagePath); ?>"
