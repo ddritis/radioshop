@@ -39,7 +39,7 @@
                             </p>
 
                             <a href="index.php?page=product&action=show&id=<?php echo $p['id_product']; ?>"
-                                class="w-100 btn btn-lg btn-warning">
+                                class="w-100 btn btn-lg btn-secondary">
                                 Dettagli Prodotto
                             </a>
                         </div>

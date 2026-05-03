@@ -42,13 +42,13 @@ if (file_exists($controllerFile)) {
             // 5. Dispatch the request
             $controllerObject->$action();
         } else {
-            // Action not found: redirect to default
-            header("Location: index.php?page=home");
+            // Se l'azione non esiste, usiamo la pagina under-construction
+            header("Location: index.php?page=maintenance&action=underConstruction");
             exit();
         }
     }
 } else {
-    // Controller file not found: redirect to default (Page Not Found behavior)
-    header("Location: index.php?page=home");
+    // Se il file del controller non esiste (es. page=spedizioni)
+    header("Location: index.php?page=maintenance&action=underConstruction");
     exit();
 }

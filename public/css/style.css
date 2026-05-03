@@ -19,6 +19,11 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* Utility to disable the zoom effect on specific cards */
+.no-zoom:hover {
+    transform: none !important;
+}
+
 .card-img-top {
     padding: 20px;
     background-color: #f8f9fa;
@@ -49,3 +54,4 @@
 .myDiv footer {
     margin-top: 20px;
 }
+

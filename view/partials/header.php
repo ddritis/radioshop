@@ -55,11 +55,26 @@
                 <!-- Autenticazione con protezione XSS (Sanitizzazione input) -->
                 <div class="d-flex align-items-center mt-3 mt-lg-0">
                     <?php if (isset($_SESSION['userId'])): ?>
-                        <span class="me-3 small">Ciao, <strong><?php echo htmlspecialchars($_SESSION['userName']); ?></strong></span>
-                        <a href="index.php?page=auth&action=logout" class="btn btn-outline-danger btn-sm">Logout</a>
+
+                        <!-- Link al Profilo Utente (user_profile.php) -->
+                        <span class="me-3 small">Ciao,
+                            <a href="index.php?page=user&action=orders" class="text-dark text-decoration-none fw-bold text-uppercase" title="Area Personale">
+                                👤 <?php echo htmlspecialchars($_SESSION['userName']); ?>
+                            </a>
+                        </span>
+
+                        <!-- Pulsante Carrello (cart_view.php) -->
+                        <a href="index.php?page=cart&action=index" class="btn btn-outline-dark btn-sm me-3 d-flex align-items-center">
+                            🛒 <span class="ms-1 fw-bold">Carrello</span>
+                        </a>
+
+                        <!-- Logout -->
+                        <a href="index.php?page=auth&action=logout" class="btn btn-danger btn-sm shadow-sm">Logout</a>
+
                     <?php else: ?>
-                        <a href="index.php?page=auth&action=login" class="btn btn-outline-dark me-2 btn-sm">Accedi</a>
-                        <a href="index.php?page=auth&action=register" class="btn btn-dark btn-sm">Registrati</a>
+                        <!-- Utente non loggato -->
+                        <a href="index.php?page=auth&action=login" class="btn btn-outline-dark me-2 btn-sm shadow-sm">Accedi</a>
+                        <a href="index.php?page=auth&action=register" class="btn btn-dark btn-sm shadow-sm">Registrati</a>
                     <?php endif; ?>
                 </div>
             </div>

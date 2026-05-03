@@ -17,7 +17,7 @@ For a detailed view of the project's architecture and file organization, please 
 * **Language:** PHP 8.x
 * **Database:** MySQL via PDO (with Prepared Statements)
 * **Architecture:** MVC (Model-View-Controller)
-* **Frontend:** HTML5, CSS3
+* **Frontend:** HTML5, CSS3, Bootstrap 5.3.x
 
 ---
 
