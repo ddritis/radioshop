@@ -4,7 +4,7 @@
 
 Questa è un'applicazione web professionale che sfrutta l'architettura a livelli per separare la logica di business dalla presentazione, garantendo scalabilità e manutenibilità del software.
 
-![Banner Cookie](doc/screenshot03.png)
+![Banner Cookie](doc/screenshot05.png)
 
 ## 📚 Documentazione del Progetto
 
