@@ -55,3 +55,48 @@
     margin-top: 20px;
 }
 
+/* public/css/style.css */
+
+/* Login button: subtle interaction with Blue hover */
+.btn-outline-dark:hover {
+    background-color: #0d6efd !important;
+    /* Bootstrap Primary Blue */
+    border-color: #0d6efd !important;
+    color: #ffffff !important;
+    transition: background-color 0.3s ease;
+}
+
+/* Registration button: positive interaction with Green hover */
+.btn-dark:hover {
+    background-color: #198754 !important;
+    /* Bootstrap Success Green */
+    border-color: #198754 !important;
+    color: #ffffff !important;
+    transition: background-color 0.3s ease;
+}
+
+/* Definizione del colore viola del logo Radioshop */
+:root {
+    --radioshop-purple: #7C3AC1;
+    /* Viola StarUML memorizzato nelle info */
+}
+
+/* Personalizzazione dei badge nella pagina About */
+.about-badge {
+    background-color: var(--radioshop-purple) !important;
+    color: #ffffff !important;
+}
+
+/* Personalizzazione del bottone principale nella pagina About */
+.btn-purple {
+    background-color: var(--radioshop-purple) !important;
+    border-color: var(--radioshop-purple) !important;
+    color: #ffffff !important;
+    transition: filter 0.3s ease;
+}
+
+.btn-purple:hover {
+    filter: brightness(1.2);
+    /* Schiarisce leggermente al passaggio del mouse */
+    color: #ffffff !important;
+}
