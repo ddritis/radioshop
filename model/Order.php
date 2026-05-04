@@ -98,6 +98,6 @@ class Order
 
         $stmt = $this->db->prepare($sql);
         $stmt->execute(['oid' => $orderId]);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC); // Recuperiamo tutte le righe[cite: 9]
+        return $stmt->fetchAll(PDO::FETCH_ASSOC); // Recuperiamo tutte le righe
     }
 }

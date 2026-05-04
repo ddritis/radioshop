@@ -21,8 +21,8 @@
                 <h5>Prodotti</h5>
                 <ul class="list-unstyled text-small">
                     <li><a class="link-secondary text-decoration-none" href="index.php?page=home">Tutti i prodotti</a></li>
-                    <li><a class="link-secondary text-decoration-none" href="index.php?page=categories&id=1">Raspberry Pi</a></li>
-                    <li><a class="link-secondary text-decoration-none" href="index.php?page=categories&id=2">Orange Pi</a></li>
+                    <li><a class="link-secondary text-decoration-none" href="index.php?page=product&action=category&type=raspberry">Raspberry Pi</a></li>
+                    <li><a class="link-secondary text-decoration-none" href="index.php?page=product&action=category&type=orange">Orange Pi</a></li>
                 </ul>
             </div>
 
@@ -32,7 +32,7 @@
                 <ul class="list-unstyled text-small">
                     <li><a class="link-secondary text-decoration-none" href="index.php?page=maintenance&action=underConstruction">Spedizioni</a></li>
                     <li><a class="link-secondary text-decoration-none" href="index.php?page=maintenance&action=underConstruction">Resi e rimborsi</a></li>
-                    <li><a class="link-secondary text-decoration-none" href="index.php?page=contact">Contattaci</a></li>
+                    <li><a class="link-secondary text-decoration-none" href="index.php?page=staticPage&action=contact">Contattaci</a></li>
                 </ul>
             </div>
 
