@@ -68,4 +68,62 @@ class Product
 
         return $stmt->fetchAll();
     }
+
+    /**
+     * Inserisce un nuovo prodotto nel database 
+     */
+    public function insert($name, $price, $stock, $image, $id_cat, $description)
+    {
+        try {
+            // Iniziamo una transazione per sicurezza applicativa
+            $this->db->beginTransaction();
+
+            // Passaggio 1: Inserimento anagrafica prodotto
+            $sqlProd = "INSERT INTO products (product_name, id_category, stock_quantity, image_path, is_active, description) 
+                    VALUES (:name, :id_cat, :stock, :image, 1, :description)";
+            $stmtProd = $this->db->prepare($sqlProd);
+            $stmtProd->execute([
+                'name'   => $name,
+                'id_cat' => $id_cat,
+                'stock'  => $stock,
+                'image'  => $image,
+                'description' => $description
+            ]);
+
+            $newProductId = $this->db->lastInsertId(); // Recuperiamo l'ID generato
+
+            // Passaggio 2: Inserimento prezzo nella tabella dedicata
+            $sqlPrice = "INSERT INTO price_lists (id_product, price, valid_from) 
+                     VALUES (:id_p, :price, CURDATE())";
+            $stmtPrice = $this->db->prepare($sqlPrice);
+            $stmtPrice->execute([
+                'id_p'  => $newProductId,
+                'price' => $price
+            ]);
+
+            $this->db->commit(); // Faccio il commit al DB
+            return true;
+        } catch (PDOException $e) {
+            $this->db->rollBack(); // Se qualcosa fallisce, annullo tutto
+            error_log("Errore Transazione: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    /**
+     * Eliminazione Logica di un prodotto (Soft Delete) 🗑️
+     */
+    public function delete($id)
+    {
+        try {
+            // Non eliminiamo la riga, cambiamo solo lo stato
+            $sql = "UPDATE products SET is_active = 0 WHERE id_product = :id";
+
+            $stmt = $this->db->prepare($sql);
+            return $stmt->execute(['id' => $id]);
+        } catch (PDOException $e) {
+            error_log("Errore eliminazione logica: " . $e->getMessage());
+            return false;
+        }
+    }
 }

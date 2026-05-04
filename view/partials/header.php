@@ -62,6 +62,14 @@
                             <i class="bi bi-person-circle"></i> Area Personale
                         </a>
                     </li>
+                    <!-- Link Amministrazione: visibile solo se l'utente ha il ruolo admin -->
+                    <?php if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] === true): ?>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold text-danger" href="index.php?page=admin&action=dashboard">
+                                ⚙️ Dashboard Admin
+                            </a>
+                        </li>
+                    <?php endif; ?>
                 </ul>
 
                 <!-- Autenticazione con protezione XSS (Sanitizzazione input) -->
