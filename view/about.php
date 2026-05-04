@@ -22,6 +22,14 @@
             <p class="fst-italic text-secondary mb-4">
                 "Ho sviluppato Radioshop come sintesi del mio percorso di studi presso l'I.T.I.S. Carlo Zuccante (VE)".
             </p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-4">
+                <a href="https://github.com/ddritis" target="_blank" class="btn btn-outline-secondary btn-sm px-4">
+                    Profilo GitHub pubblico
+                </a>
+                <a href="https://github.com/ddritis/radioshop" target="_blank" class="btn btn-outline-secondary btn-sm px-4">
+                    Repository progetto
+                </a>
+            </div>
 
             <!-- Stack Tecnologico con Emoji e Link -->
             <div class="mb-5">
@@ -37,7 +45,7 @@
             </div>
 
             <div class="mt-4">
-                <a href="index.php?page=home" class="btn btn-purple px-4 shadow-sm">Esplora il Catalogo</a>
+                <a href="index.php?page=home" class="btn btn-purple px-4 shadow-sm">🏠 homepage</a>
             </div>
         </div>
     </div>
