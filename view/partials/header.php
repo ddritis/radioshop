@@ -57,6 +57,11 @@
                             <li><a class="dropdown-item" href="index.php?page=product&action=list">Tutti i prodotti</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?page=user&action=profile">
+                            <i class="bi bi-person-circle"></i> Area Personale
+                        </a>
+                    </li>
                 </ul>
 
                 <!-- Autenticazione con protezione XSS (Sanitizzazione input) -->

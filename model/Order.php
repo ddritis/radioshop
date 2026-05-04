@@ -70,4 +70,34 @@ class Order
         $stmt->execute(['uid' => $userId]);
         return $stmt->fetchAll();
     }
+
+    public function getOrderDetails($orderId, $userId)
+    {
+        $sql = "SELECT o.*, i.invoice_number, i.total_amount, cp.first_name, cp.last_name, u.email
+            FROM orders o
+            LEFT JOIN invoices i ON o.id_order = i.id_order
+            LEFT JOIN customer_profiles cp ON o.id_customer = cp.id_customer
+            LEFT JOIN users u ON o.id_customer = u.id_user
+            WHERE o.id_order = :orderId AND o.id_customer = :userId";
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(['orderId' => $orderId, 'userId' => $userId]);
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * Recupera i prodotti inclusi in un ordine specifico 📦
+     */
+    public function getOrderItems($orderId)
+    {
+        $sql = "SELECT oi.*, p.product_name AS name 
+            FROM order_items oi
+            JOIN products p ON oi.id_product = p.id_product
+            WHERE oi.id_order = :oid";
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(['oid' => $orderId]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC); // Recuperiamo tutte le righe[cite: 9]
+    }
 }

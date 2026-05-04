@@ -20,6 +20,14 @@
                         </div>
                     <?php endif; ?>
 
+                    <?php if (isset($_GET['msg']) && $_GET['msg'] === 'success'): ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>✅ Registrazione completata!</strong>
+                            Ora puoi accedere con le tue credenziali.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php endif; ?>
+
                     <form action="index.php?page=auth&action=login" method="POST">
                         <div class="mb-3">
                             <label for="email" class="form-label fw-semibold">Email</label>

@@ -47,4 +47,36 @@ class OrderController extends BaseController
             ]);
         }
     }
+
+    public function invoice()
+    {
+        // 🔐 Sicurezza applicativa: Accesso solo ad utenti autenticati
+        if (!isset($_SESSION['userId'])) {
+            header("Location: index.php?page=auth&action=login");
+            exit();
+        }
+
+        $orderId = $_GET['id'] ?? null;
+        $orderModel = new Order();
+
+        // Recupero dati: Interazione con DB (Persistence Layer)
+        // Passiamo anche l'ID utente per garantire che veda solo i propri ordini
+        $order = $orderModel->getOrderDetails($orderId, $_SESSION['userId']);
+
+        if (!$order) {
+            // Gestione errori: se l'ordine non esiste o non appartiene all'utente
+            header("Location: index.php?page=user&action=orders&error=not_found");
+            exit();
+        }
+
+        // 2. RECUPERO PRODOTTI DELL'ORDINE 🛒
+        $items = $orderModel->getOrderItems($orderId);
+
+        // 🎨 Presentation Layer: Caricamento della View specifica
+        $this->renderView('order_invoice', [
+            'pageTitle' => 'Dettaglio Fattura #' . $order['invoice_number'],
+            'order'     => $order,
+            'items'     => $items // Passiamo i prodotti alla View
+        ]);
+    }
 }

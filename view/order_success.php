@@ -28,7 +28,7 @@
 
             <!-- Azioni Successive -->
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <a href="index.php?page=account&action=dashboard" class="btn btn-outline-success btn-lg px-4 gap-3">Area Personale</a>
+                <a href="index.php?page=user&action=profile" class="btn btn-outline-success btn-lg px-4 gap-3">Area Personale</a>
                 <a href="index.php?page=home" class="btn btn-primary btn-lg px-4">Torna allo Store</a>
             </div>
 

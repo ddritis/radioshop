@@ -42,8 +42,14 @@
                                         </span>
                                     </td>
                                     <td class="fw-bold text-secondary">
-                                        <!-- XSS protection for dynamic data -->
-                                        <?php echo htmlspecialchars($o['invoice_number'] ?? 'Non emessa'); ?>
+                                        <?php if (!empty($o['invoice_number'])): ?>
+                                            <a href="index.php?page=order&action=invoice&id=<?php echo $o['id_order']; ?>"
+                                                class="text-decoration-none text-purple">
+                                                📄 <?php echo htmlspecialchars($o['invoice_number']); ?>
+                                            </a>
+                                        <?php else: ?>
+                                            <span class="text-muted">Non emessa</span>
+                                        <?php endif; ?>
                                     </td>
                                     <td class="text-end fw-semibold text-danger">
                                         € <?php echo number_format($o['total_amount'], 2); ?>

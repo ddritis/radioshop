@@ -45,8 +45,9 @@ class AuthController extends BaseController
     {
         $error = null;
 
+        // Se la richiesta è POST, l'utente sta inviando i dati del form
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Recupero i dati dal form POST
+            // Recupero i dati (In TPSIT: Fase di recupero parametri HTTP)
             $email     = $_POST['email'] ?? '';
             $password  = $_POST['password'] ?? '';
             $firstName = $_POST['first_name'] ?? '';
@@ -54,17 +55,17 @@ class AuthController extends BaseController
 
             $userModel = new User();
 
-            // Tento la registrazione (scrive su 3 tabelle: users, customers, customer_profiles)
+            // Validazione e persistenza nel Model
             if ($userModel->register($email, $password, $firstName, $lastName)) {
-                // Se va a buon fine, mando l'utente al login
-                header("Location: index.php?page=auth&action=login");
+                // Successo: redirect al login
+                header("Location: index.php?page=auth&action=login&msg=success");
                 exit();
             } else {
                 $error = "Registrazione fallita. L'email potrebbe essere già presente.";
             }
         }
 
-        // Carico la view view/register.php
+        // Visualizzazione del form (Sia al primo caricamento GET che in caso di errore)
         $this->renderView('register', [
             'pageTitle' => 'Crea Account',
             'error' => $error

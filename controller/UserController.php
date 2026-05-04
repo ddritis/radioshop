@@ -1,31 +1,69 @@
 <?php
 // controller/UserController.php
 require_once 'BaseController.php';
+require_once 'model/User.php';
 require_once 'model/Order.php';
 
 class UserController extends BaseController
 {
     /**
-     * Gestisco la visualizzazione dello storico ordini dell'utente
+     * Mostra la dashboard dell'area personale 👤
      */
-    public function orders()
+    public function profile()
     {
-        // Mi assicuro che l'accesso sia consentito solo agli utenti autenticati
         if (!isset($_SESSION['userId'])) {
             header("Location: index.php?page=auth&action=login");
             exit();
         }
 
-        // Istanzio il Model degli ordini per recuperare i dati dal database
-        $orderModel = new Order();
+        $userModel = new User();
+        $userData = $userModel->getUserById($_SESSION['userId']);
 
-        // Estraggo tutti gli ordini effettuati dall'utente attualmente in sessione
+        $this->renderView('user_profile', [
+            'pageTitle' => 'Area Personale',
+            'user'      => $userData
+        ]);
+    }
+
+    /**
+     * Gestisce lo storico ordini 📦
+     */
+    public function orders()
+    {
+        if (!isset($_SESSION['userId'])) {
+            header("Location: index.php?page=auth&action=login");
+            exit();
+        }
+
+        $orderModel = new Order();
         $orders = $orderModel->getCustomerOrders($_SESSION['userId']);
 
-        // Passo i dati alla view per mostrare la lista degli ordini e le relative fatture
         $this->renderView('my_orders', [
             'pageTitle' => 'I Miei Ordini',
             'orders'    => $orders
         ]);
+    }
+
+    /**
+     * Eliminazione account e distruzione sessione ⚠️
+     */
+    public function deleteAccount()
+    {
+        if (!isset($_SESSION['userId'])) {
+            header("Location: index.php?page=auth&action=login");
+            exit();
+        }
+
+        $userModel = new User();
+
+        // In TPSIT, l'eliminazione è un'operazione critica sui dati
+        if ($userModel->deleteUser($_SESSION['userId'])) {
+            // Logout forzato dopo la cancellazione
+            session_destroy();
+            header("Location: index.php?page=home&msg=account_deleted");
+        } else {
+            header("Location: index.php?page=user&action=profile&error=delete_failed");
+        }
+        exit();
     }
 }

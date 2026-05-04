@@ -6,7 +6,7 @@
 <div class="container-sm mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="card shadow-sm border-warning">
+            <div class="card shadow-sm border-warning no-zoom">
                 <div class="card-header bg-warning text-center py-3">
                     <h2 class="mb-0 h4 text-uppercase fw-bold">Registra un nuovo account</h2>
                 </div>
@@ -19,7 +19,7 @@
                         </div>
                     <?php endif; ?>
 
-                    <form action="index.php?page=auth&action=doRegister" method="POST" class="needs-validation">
+                    <form action="index.php?page=auth&action=register" method="POST" class="needs-validation">
 
                         <!-- Uso le classi form-control di Bootstrap per l'aspetto Radioshop -->
                         <div class="mb-3">
