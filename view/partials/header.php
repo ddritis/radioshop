@@ -41,13 +41,20 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?page=whoareus">Chi siamo</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?page=staticPage&action=about">About</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Prodotti
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Raspberry Pi</a></li>
-                            <li><a class="dropdown-item" href="#">Orange Pi</a></li>
+                        <ul class="dropdown-menu shadow-sm" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="index.php?page=product&action=category&type=raspberry">Raspberry Pi</a></li>
+                            <li><a class="dropdown-item" href="index.php?page=product&action=category&type=orange">Orange Pi</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="index.php?page=product&action=list">Tutti i prodotti</a></li>
                         </ul>
                     </li>
                 </ul>

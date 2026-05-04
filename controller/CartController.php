@@ -61,4 +61,23 @@ class CartController extends BaseController
             'total' => $total
         ]);
     }
+
+    public function clear()
+    {
+        // Verifica sicurezza: utente loggato?
+        if (!isset($_SESSION['userId'])) {
+            header("Location: index.php?page=auth&action=login");
+            exit();
+        }
+
+        // Istanzio il modello per agire sul database
+        $cartModel = new Cart();
+
+        // Chiamo il metodo di cancellazione nel Model (lo creeremo tra un attimo)
+        $cartModel->clearCart($_SESSION['userId']);
+
+        // Reindirizzamento alla vista del carrello aggiornata
+        header("Location: index.php?page=cart&action=index");
+        exit();
+    }
 }

@@ -37,10 +37,20 @@
         </div>
 
         <!-- Controlli di navigazione inferiori -->
-        <div class="d-flex justify-content-between align-items-center mt-4 border-top pt-4">
-            <a href="index.php?page=home" class="btn btn-outline-secondary fw-semibold">
-                Continua lo shopping
-            </a>
+        <div class="d-flex flex-wrap justify-content-between align-items-center mt-4 border-top pt-4 gap-3">
+            <div class="d-flex gap-2">
+                <a href="index.php?page=home" class="btn btn-outline-secondary fw-semibold">
+                    Continua lo shopping
+                </a>
+
+                <!-- NUOVO: Pulsante Svuota Carrello con conferma JavaScript -->
+                <a href="index.php?page=cart&action=clear"
+                    class="btn btn-outline-danger shadow-sm"
+                    onclick="return confirm('⚠️ Sei sicuro di voler svuotare completamente il carrello?')">
+                    🗑️ Svuota Carrello
+                </a>
+            </div>
+
             <a href="index.php?page=order&action=checkout" class="btn btn-success btn-lg fw-bold shadow-sm">
                 Procedi all'ordine
             </a>

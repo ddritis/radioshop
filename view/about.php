@@ -23,14 +23,16 @@
                 "Ho sviluppato Radioshop come sintesi del mio percorso di studi presso l'I.T.I.S. Carlo Zuccante (VE)".
             </p>
 
-            <!-- Stack Tecnologico -->
+            <!-- Stack Tecnologico con Emoji e Link -->
             <div class="mb-5">
                 <h6 class="text-uppercase text-muted small fw-bold mb-3">Stack Tecnologico</h6>
                 <div class="d-flex flex-wrap justify-content-center gap-2">
-                    <a href="https://www.php.net/docs.php" target="_blank" class="badge about-badge text-decoration-none px-3 py-2">PHP 8</a>
-                    <a href="https://en.wikipedia.org/wiki/Model%E2%80%83view%E2%80%83controller" target="_blank" class="badge about-badge text-decoration-none px-3 py-2">MVC Pattern</a>
-                    <a href="https://www.lpi.org/our-certifications/lpic-2-overview/" target="_blank" class="badge about-badge text-decoration-none px-3 py-2">Linux/LPIC-2</a>
-                    <a href="https://getbootstrap.com/docs/5.3/" target="_blank" class="badge about-badge text-decoration-none px-3 py-2">Bootstrap 5</a>
+                    <a href="https://www.php.net/" target="_blank" class="badge about-badge text-decoration-none px-3 py-2">🐘 PHP 8</a>
+                    <a href="https://httpd.apache.org/" target="_blank" class="badge about-badge text-decoration-none px-3 py-2">羽 Apache</a>
+                    <a href="https://dietpi.com/" target="_blank" class="badge about-badge text-decoration-none px-3 py-2">🍱 DietPi</a>
+                    <a href="https://it.wikipedia.org/wiki/Model-view-controller" target="_blank" class="badge about-badge text-decoration-none px-3 py-2">🏗️ MVC Pattern</a>
+                    <a href="https://www.lpi.org/our-certifications/lpic-2-overview/" target="_blank" class="badge about-badge text-decoration-none px-3 py-2">🐧 Linux/LPIC-2</a>
+                    <a href="https://getbootstrap.com/" target="_blank" class="badge about-badge text-decoration-none px-3 py-2">🎨 Bootstrap 5</a>
                 </div>
             </div>
 

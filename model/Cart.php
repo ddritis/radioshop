@@ -77,4 +77,17 @@ class Cart
             'qty_update' => $quantity
         ]);
     }
+
+    public function clearCart($userId)
+    {
+        // Recupero l'ID del carrello dell'utente
+        $cartId = $this->getOrCreateCart($userId);
+
+        // Query SQL per eliminare tutti i prodotti associati a quel carrello
+        // Nota: usiamo i Prepared Statements per la sicurezza applicativa
+        $sql = "DELETE FROM cart_items WHERE id_cart = :id_cart";
+
+        $stmt = $this->db->prepare($sql);
+        return $stmt->execute(['id_cart' => $cartId]);
+    }
 }
