@@ -5,7 +5,7 @@
 <main class="container-lg my-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="fw-bold text-uppercase mb-0">I tuoi Ordini</h1>
-        <span class="badge bg-dark fs-6 p-2 shadow-sm">👤 <?php echo htmlspecialchars($_SESSION['userName']); ?></span>
+        <span class="badge bg-purple fs-6 p-2 shadow-sm">👤 <?php echo htmlspecialchars($_SESSION['userName']); ?></span>
     </div>
 
     <div class="card shadow-sm border-secondary no-zoom">

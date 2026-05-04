@@ -100,3 +100,8 @@
     /* Schiarisce leggermente al passaggio del mouse */
     color: #ffffff !important;
 }
+
+.bg-purple {
+    background-color: var(--radioshop-purple) !important;
+    color: #ffffff !important;
+}
