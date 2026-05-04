@@ -100,11 +100,13 @@ class User
      */
     public function getUserById($id)
     {
-        // Recuperiamo l'email (che funge da username nel tuo sistema) 
+        // Recupero l'email (che funge da username nel sistema) 
         // e i dettagli dal profilo
-        $sql = "SELECT u.id_user, u.email, cp.first_name, cp.last_name, u.created_at
+        $sql = "SELECT u.id_user, u.email, cp.first_name, cp.last_name, u.created_at,
+         cp.phone, ad.street, ad.postal_code, ad.city, ad.province, ad.country  
             FROM users u
             LEFT JOIN customer_profiles cp ON u.id_user = cp.id_customer
+            LEFT JOIN addresses ad ON cp.id_profile = ad.id_profile
             WHERE u.id_user = :id";
 
         $stmt = $this->db->prepare($sql);

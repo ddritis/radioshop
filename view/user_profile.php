@@ -20,6 +20,34 @@
                         </div>
                     </div>
                     <div class="row mb-4">
+                        <div class="col-sm-4 text-muted">Telefono:</div>
+                        <div class="col-sm-8 fw-bold">
+                            <?php
+                            // telefono utente
+                            if (!empty($user['phone'])) {
+                                echo htmlspecialchars($user['phone']);
+                            } else {
+                                echo htmlspecialchars('phone_placeholder');
+                            }
+                            ?>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-sm-4 text-muted">Indirizzo:</div>
+                        <div class="col-sm-8 fw-bold">
+                            <?php
+                            // indirizzo utente
+                            if (!empty($user['street'])) {
+                                echo htmlspecialchars($user['street']);
+                            } else {
+                                echo htmlspecialchars('address_placeholder');
+                            }
+                            ?>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
                         <div class="col-sm-4 text-muted">Email:</div>
                         <div class="col-sm-8"><?php echo htmlspecialchars($user['email']); ?></div>
                     </div>
