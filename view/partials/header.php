@@ -87,14 +87,26 @@
     }
     ?>
     <!-- GDPR Cookie Banner -->
-    <div id="cookieConsent" class="bg-danger text-white py-3 fixed-bottom border-top border-danger shadow-lg" style="display: none; z-index: 1050;">
-        <div class="container-lg d-flex flex-column flex-md-row justify-content-between align-items-center">
-            <div class="mb-2 mb-md-0 small">
-                🍪 <strong>Informativa:</strong> Utilizziamo cookie tecnici necessari per il funzionamento del carrello, la gestione delle sessioni e la sicurezza.
+    <div id="cookieConsent"
+        class="bg-danger text-white py-3 fixed-bottom border-top border-danger shadow-lg"
+        style="display: none; z-index: 1050;">
+
+        <div class="container-lg d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+
+            <div class="fs-5 text-center text-md-start flex-grow-1">
+                <span class="d-inline-block mx-auto mx-md-0" style="max-width: 960px;">
+                    🍪 <strong>Informativa:</strong> Questo sito utilizza esclusivamente cookie tecnici necessari al funzionamento del carrello,
+                    alla gestione delle sessioni e alla sicurezza. In base al Regolamento (UE) 2016/679 (GDPR),
+                    tali cookie non richiedono il consenso dell’utente.
+                </span>
             </div>
-            <div>
-                <button id="btnAcceptCookies" class="btn btn-warning btn-sm fw-bold px-4">Ho capito</button>
+
+            <div class="flex-shrink-0">
+                <button id="btnAcceptCookies" class="btn btn-warning btn-sm fw-bold px-4">
+                    Ho capito
+                </button>
             </div>
+
         </div>
     </div>
 
