@@ -26,5 +26,5 @@ For a detailed view of the project's architecture and file organization, please 
 
 ---
 
-![Screenshot](doc/screenshot02.png)
+![Screenshot](doc/screenshot04.png)
 
