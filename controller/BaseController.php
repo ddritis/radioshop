@@ -31,4 +31,20 @@ abstract class BaseController
             exit();
         }
     }
+
+    /**
+     * Verifica se l'utente loggato è un amministratore 
+     * Se non lo è, interrompe l'esecuzione e reindirizza alla home.
+     */
+    protected function checkAdmin()
+    {
+        // Verifico lo stato della sessione
+        if (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] !== true) {
+            // Logging dell'accesso negato per debugging
+            error_log("Accesso non autorizzato tentato da User ID: " . ($_SESSION['userId'] ?? 'Guest'));
+
+            header("Location: index.php?page=home&error=unauthorized");
+            exit();
+        }
+    }
 }
