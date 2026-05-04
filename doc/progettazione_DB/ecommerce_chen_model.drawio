@@ -1,82 +1,82 @@
 <mxfile host="Electron">
   <diagram name="Ecommerce Chen Model" id="0">
-    <mxGraphModel dx="1873" dy="1169" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+    <mxGraphModel dx="1940" dy="1042" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="utente" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="UTENTE" vertex="1">
+        <mxCell id="utente" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fontStyle=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=light-dark(#FFFFFF,#EDEDED);gradientColor=#67AB9F;gradientDirection=radial;" value="UTENTE" vertex="1">
           <mxGeometry height="50" width="120" x="30" y="410" as="geometry" />
         </mxCell>
-        <mxCell id="cliente" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="CLIENTE" vertex="1">
+        <mxCell id="cliente" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fontStyle=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=light-dark(#FFFFFF,#EDEDED);gradientColor=#67AB9F;gradientDirection=radial;" value="CLIENTE" vertex="1">
           <mxGeometry height="50" width="120" x="160" y="330" as="geometry" />
         </mxCell>
-        <mxCell id="superadmin" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="SUPERADMIN" vertex="1">
+        <mxCell id="superadmin" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fontStyle=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=light-dark(#FFFFFF,#EDEDED);gradientColor=#67AB9F;gradientDirection=radial;" value="SUPERADMIN" vertex="1">
           <mxGeometry height="50" width="120" x="160" y="620" as="geometry" />
         </mxCell>
-        <mxCell id="anagrafica" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="ANAGRAFICA" vertex="1">
+        <mxCell id="anagrafica" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fontStyle=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=light-dark(#FFFFFF,#EDEDED);gradientColor=#67AB9F;gradientDirection=radial;" value="ANAGRAFICA" vertex="1">
           <mxGeometry height="50" width="130" x="380" y="240" as="geometry" />
         </mxCell>
-        <mxCell id="indirizzo" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="INDIRIZZO" vertex="1">
+        <mxCell id="indirizzo" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fontStyle=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=light-dark(#FFFFFF,#EDEDED);gradientColor=#67AB9F;gradientDirection=radial;" value="INDIRIZZO" vertex="1">
           <mxGeometry height="50" width="120" x="660" y="240" as="geometry" />
         </mxCell>
-        <mxCell id="carrello" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="CARRELLO" vertex="1">
+        <mxCell id="carrello" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fontStyle=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=light-dark(#FFFFFF,#EDEDED);gradientColor=#67AB9F;gradientDirection=radial;" value="CARRELLO" vertex="1">
           <mxGeometry height="50" width="130" x="300" y="540" as="geometry" />
         </mxCell>
-        <mxCell id="ordine" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="ORDINE" vertex="1">
+        <mxCell id="ordine" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fontStyle=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=light-dark(#FFFFFF,#EDEDED);gradientColor=#67AB9F;gradientDirection=radial;" value="ORDINE" vertex="1">
           <mxGeometry height="50" width="120" x="370" y="740" as="geometry" />
         </mxCell>
-        <mxCell id="fattura" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="FATTURA" vertex="1">
+        <mxCell id="fattura" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fontStyle=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=light-dark(#FFFFFF,#EDEDED);gradientColor=#67AB9F;gradientDirection=radial;" value="FATTURA" vertex="1">
           <mxGeometry height="50" width="120" x="860" y="290" as="geometry" />
         </mxCell>
-        <mxCell id="prodotto" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="PRODOTTO" vertex="1">
+        <mxCell id="prodotto" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fontStyle=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=light-dark(#FFFFFF,#EDEDED);gradientColor=#67AB9F;gradientDirection=radial;" value="PRODOTTO" vertex="1">
           <mxGeometry height="50" width="120" x="1130" y="330" as="geometry" />
         </mxCell>
-        <mxCell id="categoria" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="CATEGORIA" vertex="1">
+        <mxCell id="categoria" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fontStyle=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=light-dark(#FFFFFF,#EDEDED);gradientColor=#67AB9F;gradientDirection=radial;" value="CATEGORIA" vertex="1">
           <mxGeometry height="50" width="130" x="1440" y="210" as="geometry" />
         </mxCell>
-        <mxCell id="listino" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=0;fontStyle=1;" value="LISTINO" vertex="1">
+        <mxCell id="listino" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fontStyle=1;fillColor=light-dark(#FFFFFF,#EDEDED);gradientColor=#67AB9F;gradientDirection=radial;" value="LISTINO" vertex="1">
           <mxGeometry height="50" width="130" x="1440" y="470" as="geometry" />
         </mxCell>
-        <mxCell id="rigacarrello" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=0;fontStyle=1;dashed=1;" value="RIGA_CARRELLO" vertex="1">
+        <mxCell id="rigacarrello" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fontStyle=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=light-dark(#FFFFFF,#EDEDED);gradientColor=#E6E6E6;gradientDirection=radial;dashed=1;dashPattern=12 12;" value="RIGA_CARRELLO" vertex="1">
           <mxGeometry height="50" width="150" x="990" y="430" as="geometry" />
         </mxCell>
-        <mxCell id="rigaordine" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=0;fontStyle=1;dashed=1;" value="RIGA_ORDINE" vertex="1">
-          <mxGeometry height="50" width="150" x="960" y="680" as="geometry" />
+        <mxCell id="rigaordine" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fontStyle=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=light-dark(#FFFFFF,#EDEDED);gradientColor=#E6E6E6;gradientDirection=radial;dashed=1;dashPattern=12 12;" value="RIGA_ORDINE" vertex="1">
+          <mxGeometry height="50" width="150" x="910" y="680" as="geometry" />
         </mxCell>
-        <mxCell id="r_is_a_cli" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;fontStyle=1;" value="ISA" vertex="1">
+        <mxCell id="r_is_a_cli" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#FFFFFF;strokeColor=#d6b656;gradientColor=light-dark(#E8BF00,#EDEDED);" value="IS_&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;A&lt;/span&gt;" vertex="1">
           <mxGeometry height="40" width="70" x="140" y="470" as="geometry" />
         </mxCell>
-        <mxCell id="r_has_anag" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;fontStyle=1;" value="HA" vertex="1">
+        <mxCell id="r_has_anag" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;strokeColor=#000000;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=#e1d5e7;gradientColor=#A680B8;gradientDirection=radial;" value="HAS_A" vertex="1">
           <mxGeometry height="40" width="70" x="250" y="245" as="geometry" />
         </mxCell>
-        <mxCell id="r_has_ind" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;fontStyle=1;" value="HA" vertex="1">
+        <mxCell id="r_has_ind" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;strokeColor=#000000;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=#e1d5e7;gradientColor=#A680B8;gradientDirection=radial;" value="HAS_A" vertex="1">
           <mxGeometry height="40" width="60" x="555" y="245" as="geometry" />
         </mxCell>
-        <mxCell id="r_possiede" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;fontStyle=1;" value="POSSIEDE" vertex="1">
+        <mxCell id="r_possiede" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;strokeColor=#000000;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=#e1d5e7;gradientColor=#A680B8;gradientDirection=radial;" value="POSSIEDE" vertex="1">
           <mxGeometry height="50" width="90" x="320" y="450" as="geometry" />
         </mxCell>
-        <mxCell id="r_effettua" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;fontStyle=1;" value="EFFETTUA" vertex="1">
+        <mxCell id="r_effettua" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;strokeColor=#000000;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=#e1d5e7;gradientColor=#A680B8;gradientDirection=radial;" value="EFFETTUA" vertex="1">
           <mxGeometry height="50" width="90" x="540" y="450" as="geometry" />
         </mxCell>
-        <mxCell id="r_genera" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;fontStyle=1;" value="GENERA" vertex="1">
+        <mxCell id="r_genera" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;strokeColor=#000000;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=#e1d5e7;gradientColor=#A680B8;gradientDirection=radial;" value="GENERA" vertex="1">
           <mxGeometry height="50" width="80" x="760" y="450" as="geometry" />
         </mxCell>
-        <mxCell id="r_contiene_car" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;fontStyle=1;" value="CONTIENE" vertex="1">
+        <mxCell id="r_contiene_car" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;strokeColor=#000000;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=#e1d5e7;gradientColor=#A680B8;gradientDirection=radial;" value="CONTIENE" vertex="1">
           <mxGeometry height="50" width="100" x="720" y="540" as="geometry" />
         </mxCell>
-        <mxCell id="r_rif_car" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;fontStyle=1;" value="RIFERITO_A" vertex="1">
+        <mxCell id="r_rif_car" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;strokeColor=#000000;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=#e1d5e7;gradientColor=#A680B8;gradientDirection=radial;" value="RIFERITO_A" vertex="1">
           <mxGeometry height="50" width="100" x="1260" y="480" as="geometry" />
         </mxCell>
-        <mxCell id="r_contiene_ord" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;fontStyle=1;" value="CONTIENE" vertex="1">
+        <mxCell id="r_contiene_ord" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;strokeColor=#000000;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=#e1d5e7;gradientColor=#A680B8;gradientDirection=radial;" value="CONTIENE" vertex="1">
           <mxGeometry height="50" width="100" x="720" y="680" as="geometry" />
         </mxCell>
-        <mxCell id="r_rif_ord" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;fontStyle=1;" value="RIFERITO_A" vertex="1">
+        <mxCell id="r_rif_ord" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;strokeColor=#000000;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=#e1d5e7;gradientColor=#A680B8;gradientDirection=radial;" value="RIFERITO_A" vertex="1">
           <mxGeometry height="50" width="100" x="1120" y="680" as="geometry" />
         </mxCell>
-        <mxCell id="r_appartiene" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;fontStyle=1;" value="APPARTIENE" vertex="1">
+        <mxCell id="r_appartiene" parent="1" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;fillColor=#e1d5e7;strokeColor=#000000;gradientColor=#A680B8;gradientDirection=radial;" value="APPARTIENE" vertex="1">
           <mxGeometry height="50" width="110" x="1330" y="280" as="geometry" />
         </mxCell>
-        <mxCell id="r_prezzato" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;fontStyle=1;" value="PREZZATO_DA" vertex="1">
+        <mxCell id="r_prezzato" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;strokeColor=#000000;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=#e1d5e7;gradientColor=#A680B8;gradientDirection=radial;" value="PREZZATO_DA" vertex="1">
           <mxGeometry height="50" width="110" x="1330" y="380" as="geometry" />
         </mxCell>
         <mxCell id="e1" edge="1" parent="1" source="utente" style="endArrow=none;html=1;" target="r_is_a_cli">

@@ -14,3 +14,6 @@ config/database.json
 
 # Dependency manager (if used later)
 vendor/
+
+# Backup files
+*.bkp
