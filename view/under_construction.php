@@ -21,7 +21,7 @@
                     alt="Pagina in manutenzione">
             </div>
 
-            <a href="index.php?page=home" class="btn btn-success btn-lg fw-bold mt-3 px-5 shadow-sm">
+            <a href="index.php?page=home" class="btn btn-purple btn-lg fw-bold mt-3 px-5 shadow-sm">
                 TORNA ALLA HOMEPAGE</a>
         </div>
     </div>
