@@ -15,29 +15,11 @@ class Order
      */
     public function createOrder($userId, $totalAmount, $items)
     {
-        // 0. Recupero indirizzo del cliente
-        $stmt = $this->db->prepare("
-            SELECT a.id_address
-            FROM customer_profiles cp
-            JOIN addresses a ON a.id_profile = cp.id_profile
-            WHERE cp.id_customer = ?
-            LIMIT 1
-        ");
-        $stmt->execute([$userId]);
-        $address = $stmt->fetch();
-
-
-        if (!$address) {
-            throw new Exception("No address found for customer");
-        }
-
-        // 1. Inserimento dell'ordine
-        $sqlOrder = "INSERT INTO orders (id_customer, id_address, status) 
-             VALUES (:uid, :address_id, 'paid')";
+        // 1. Inserimento dell'ordine (rimosso total_amount perché non esiste nella tabella orders)
+        $sqlOrder = "INSERT INTO orders (id_customer, status) VALUES (:uid, 'paid')";
         $stmtOrder = $this->db->prepare($sqlOrder);
         $stmtOrder->execute([
-            'uid'        => $userId,
-            'address_id' => $address['id_address']
+            'uid'   => $userId
         ]);
 
         $orderId = $this->db->lastInsertId();
