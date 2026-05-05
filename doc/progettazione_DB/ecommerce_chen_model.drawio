@@ -1,32 +1,39 @@
 <mxfile host="Electron">
   <diagram name="Ecommerce Chen Model" id="0">
-    <mxGraphModel dx="1940" dy="1042" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+    <mxGraphModel dx="1084" dy="713" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="NaW2sVjNrbBNFprga0dh-3" edge="1" parent="1" source="NaW2sVjNrbBNFprga0dh-1" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="ordine" value="1,1">
+          <mxGeometry relative="1" x="-0.4956" y="4" as="geometry">
+            <mxPoint x="1" as="offset" />
+            <mxPoint x="620" y="400" as="sourcePoint" />
+            <mxPoint x="910" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="utente" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fontStyle=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=light-dark(#FFFFFF,#EDEDED);gradientColor=#67AB9F;gradientDirection=radial;" value="UTENTE" vertex="1">
           <mxGeometry height="50" width="120" x="30" y="410" as="geometry" />
         </mxCell>
         <mxCell id="cliente" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fontStyle=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=light-dark(#FFFFFF,#EDEDED);gradientColor=#67AB9F;gradientDirection=radial;" value="CLIENTE" vertex="1">
-          <mxGeometry height="50" width="120" x="160" y="330" as="geometry" />
+          <mxGeometry height="50" width="120" x="160" y="200" as="geometry" />
         </mxCell>
         <mxCell id="superadmin" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fontStyle=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=light-dark(#FFFFFF,#EDEDED);gradientColor=#67AB9F;gradientDirection=radial;" value="SUPERADMIN" vertex="1">
-          <mxGeometry height="50" width="120" x="160" y="620" as="geometry" />
+          <mxGeometry height="50" width="120" x="160" y="680" as="geometry" />
         </mxCell>
         <mxCell id="anagrafica" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fontStyle=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=light-dark(#FFFFFF,#EDEDED);gradientColor=#67AB9F;gradientDirection=radial;" value="ANAGRAFICA" vertex="1">
-          <mxGeometry height="50" width="130" x="380" y="240" as="geometry" />
+          <mxGeometry height="50" width="130" x="380" y="110" as="geometry" />
         </mxCell>
         <mxCell id="indirizzo" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fontStyle=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=light-dark(#FFFFFF,#EDEDED);gradientColor=#67AB9F;gradientDirection=radial;" value="INDIRIZZO" vertex="1">
-          <mxGeometry height="50" width="120" x="660" y="240" as="geometry" />
+          <mxGeometry height="50" width="120" x="660" y="110" as="geometry" />
         </mxCell>
         <mxCell id="carrello" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fontStyle=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=light-dark(#FFFFFF,#EDEDED);gradientColor=#67AB9F;gradientDirection=radial;" value="CARRELLO" vertex="1">
           <mxGeometry height="50" width="130" x="300" y="540" as="geometry" />
         </mxCell>
         <mxCell id="ordine" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fontStyle=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=light-dark(#FFFFFF,#EDEDED);gradientColor=#67AB9F;gradientDirection=radial;" value="ORDINE" vertex="1">
-          <mxGeometry height="50" width="120" x="370" y="740" as="geometry" />
+          <mxGeometry height="50" width="120" x="430" y="750" as="geometry" />
         </mxCell>
         <mxCell id="fattura" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fontStyle=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=light-dark(#FFFFFF,#EDEDED);gradientColor=#67AB9F;gradientDirection=radial;" value="FATTURA" vertex="1">
-          <mxGeometry height="50" width="120" x="860" y="290" as="geometry" />
+          <mxGeometry height="50" width="120" x="910" y="230" as="geometry" />
         </mxCell>
         <mxCell id="prodotto" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fontStyle=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=light-dark(#FFFFFF,#EDEDED);gradientColor=#67AB9F;gradientDirection=radial;" value="PRODOTTO" vertex="1">
           <mxGeometry height="50" width="120" x="1130" y="330" as="geometry" />
@@ -43,23 +50,23 @@
         <mxCell id="rigaordine" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;rounded=1;fontStyle=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=light-dark(#FFFFFF,#EDEDED);gradientColor=#E6E6E6;gradientDirection=radial;dashed=1;dashPattern=12 12;" value="RIGA_ORDINE" vertex="1">
           <mxGeometry height="50" width="150" x="910" y="680" as="geometry" />
         </mxCell>
-        <mxCell id="r_is_a_cli" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#FFFFFF;strokeColor=#d6b656;gradientColor=light-dark(#E8BF00,#EDEDED);" value="IS_&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;A&lt;/span&gt;" vertex="1">
+        <mxCell id="r_is_a_cli" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#FFFFFF;strokeColor=#d6b656;gradientColor=light-dark(#E8BF00,#EDEDED);rotation=0;" value="IS_&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;A&lt;/span&gt;" vertex="1">
           <mxGeometry height="40" width="70" x="140" y="470" as="geometry" />
         </mxCell>
         <mxCell id="r_has_anag" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;strokeColor=#000000;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=#e1d5e7;gradientColor=#A680B8;gradientDirection=radial;" value="HAS_A" vertex="1">
-          <mxGeometry height="40" width="70" x="250" y="245" as="geometry" />
+          <mxGeometry height="40" width="70" x="250" y="115" as="geometry" />
         </mxCell>
         <mxCell id="r_has_ind" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;strokeColor=#000000;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=#e1d5e7;gradientColor=#A680B8;gradientDirection=radial;" value="HAS_A" vertex="1">
-          <mxGeometry height="40" width="60" x="555" y="245" as="geometry" />
+          <mxGeometry height="40" width="60" x="555" y="115" as="geometry" />
         </mxCell>
         <mxCell id="r_possiede" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;strokeColor=#000000;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=#e1d5e7;gradientColor=#A680B8;gradientDirection=radial;" value="POSSIEDE" vertex="1">
           <mxGeometry height="50" width="90" x="320" y="450" as="geometry" />
         </mxCell>
         <mxCell id="r_effettua" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;strokeColor=#000000;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=#e1d5e7;gradientColor=#A680B8;gradientDirection=radial;" value="EFFETTUA" vertex="1">
-          <mxGeometry height="50" width="90" x="540" y="450" as="geometry" />
+          <mxGeometry height="50" width="90" x="420" y="380" as="geometry" />
         </mxCell>
         <mxCell id="r_genera" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;strokeColor=#000000;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=#e1d5e7;gradientColor=#A680B8;gradientDirection=radial;" value="GENERA" vertex="1">
-          <mxGeometry height="50" width="80" x="760" y="450" as="geometry" />
+          <mxGeometry height="50" width="80" x="760" y="420" as="geometry" />
         </mxCell>
         <mxCell id="r_contiene_car" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;strokeColor=#000000;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=#e1d5e7;gradientColor=#A680B8;gradientDirection=radial;" value="CONTIENE" vertex="1">
           <mxGeometry height="50" width="100" x="720" y="540" as="geometry" />
@@ -79,13 +86,13 @@
         <mxCell id="r_prezzato" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;strokeColor=#000000;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=#e1d5e7;gradientColor=#A680B8;gradientDirection=radial;" value="PREZZATO_DA" vertex="1">
           <mxGeometry height="50" width="110" x="1330" y="380" as="geometry" />
         </mxCell>
-        <mxCell id="e1" edge="1" parent="1" source="utente" style="endArrow=none;html=1;" target="r_is_a_cli">
+        <mxCell id="e1" edge="1" parent="1" source="utente" style="endArrow=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="r_is_a_cli">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e2" edge="1" parent="1" source="r_is_a_cli" style="endArrow=none;html=1;" target="cliente">
+        <mxCell id="e2" edge="1" parent="1" source="r_is_a_cli" style="endArrow=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="cliente">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e4" edge="1" parent="1" source="r_is_a_cli" style="endArrow=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="superadmin">
+        <mxCell id="e4" edge="1" parent="1" source="r_is_a_cli" style="endArrow=none;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="superadmin">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="124.09090909090924" y="600" as="sourcePoint" />
           </mxGeometry>
@@ -98,44 +105,46 @@
         </mxCell>
         <mxCell id="e7" edge="1" parent="1" source="anagrafica" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" value="1,1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="509" y="265" as="sourcePoint" />
-            <mxPoint x="554" y="265" as="targetPoint" />
+            <mxPoint x="509" y="135" as="sourcePoint" />
+            <mxPoint x="554" y="135" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="e8" edge="1" parent="1" source="r_has_ind" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="indirizzo" value="1,N">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e9" edge="1" parent="1" source="cliente" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="r_possiede" value="1,1">
+        <mxCell id="e9" edge="1" parent="1" source="cliente" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="r_possiede" value="1,1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="e10" edge="1" parent="1" source="r_possiede" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="carrello" value="1,1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e11" edge="1" parent="1" source="cliente" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="r_effettua" value="1,N">
+        <mxCell id="e11" edge="1" parent="1" source="cliente" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="r_effettua" value="1,N">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="e12" edge="1" parent="1" source="r_effettua" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="ordine" value="1,1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e13" edge="1" parent="1" source="ordine" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="r_genera" value="1,1">
+        <mxCell id="e13" edge="1" parent="1" source="ordine" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;entryX=0.287;entryY=0.784;entryDx=0;entryDy=0;entryPerimeter=0;" target="r_genera" value="1,1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e14" edge="1" parent="1" source="r_genera" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="fattura" value="1,1">
+        <mxCell id="e14" edge="1" parent="1" source="r_genera" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;exitX=0.75;exitY=0.228;exitDx=0;exitDy=0;exitPerimeter=0;" target="fattura" value="1,1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="e15" edge="1" parent="1" source="carrello" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="r_contiene_car" value="1,N">
+          <mxGeometry relative="1" x="-0.3103" y="5" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e16" edge="1" parent="1" source="r_contiene_car" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.6;entryDx=0;entryDy=0;entryPerimeter=0;" target="rigacarrello" value="1,1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e16" edge="1" parent="1" source="r_contiene_car" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="rigacarrello" value="1,1">
+        <mxCell id="e17" edge="1" parent="1" source="prodotto" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="r_rif_car" value="1,N">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e17" edge="1" parent="1" source="prodotto" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="r_rif_car" value="1,N">
+        <mxCell id="e18" edge="1" parent="1" source="r_rif_car" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="rigacarrello" value="1,1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e18" edge="1" parent="1" source="r_rif_car" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="rigacarrello" value="1,1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e19" edge="1" parent="1" source="ordine" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="r_contiene_ord" value="1,N">
+        <mxCell id="e19" edge="1" parent="1" source="ordine" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="r_contiene_ord" value="1,N">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="e20" edge="1" parent="1" source="r_contiene_ord" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="rigaordine" value="1,1">
@@ -153,11 +162,20 @@
         <mxCell id="e24" edge="1" parent="1" source="r_appartiene" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="prodotto" value="1,1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e25" edge="1" parent="1" source="prodotto" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="r_prezzato" value="1,N">
+        <mxCell id="e25" edge="1" parent="1" source="prodotto" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="r_prezzato" value="1,N">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e26" edge="1" parent="1" source="r_prezzato" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;" target="listino" value="1,1">
+        <mxCell id="e26" edge="1" parent="1" source="r_prezzato" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="listino" value="1,1">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NaW2sVjNrbBNFprga0dh-1" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;strokeColor=#000000;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=#e1d5e7;gradientColor=#A680B8;gradientDirection=radial;" value="SPEDITO_A" vertex="1">
+          <mxGeometry height="50" width="80" x="615" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="NaW2sVjNrbBNFprga0dh-2" edge="1" parent="1" source="indirizzo" style="endArrow=none;html=1;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="NaW2sVjNrbBNFprga0dh-1" value="1,N">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="560" y="243" as="sourcePoint" />
+            <mxPoint x="850" y="243" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>

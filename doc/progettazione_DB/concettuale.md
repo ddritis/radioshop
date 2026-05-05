@@ -1,35 +1,43 @@
-Entità principali
+# Elenco concettuale
 
-Utente
-Cliente
-SuperAdmin
-Anagrafica
-Indirizzo
-Prodotto
-Categoria
-Listino
-Magazzino
-Carrello
-Ordine
-Fattura
+## Entità principali
 
-Entità ponte
+- Users
+- Customers
+- SuperAdmins
+- Customer_Profiles
+- Addresses
+- Products
+- Categories
+- Price_Lists
+- Carts
+- Orders
+- Invoices
 
-RigaCarrello
-RigaOrdine
+## Entità ponte
 
-Relazioni chiave
+- Cart_Items
+- Order_Items
 
-Cliente 1:1 Carrello
-Cliente 1:N Ordine
-Cliente 1:1 / 1:N Anagrafica
-Anagrafica 1:N Indirizzo
-Prodotto N:1 Categoria
-Prodotto 1:N Listino
-Prodotto N:1 Magazzino
-Carrello 1:N RigaCarrello
-RigaCarrello N:1 Prodotto
-Ordine 1:N RigaOrdine
-RigaOrdine N:1 Prodotto
-Ordine 1:1 Fattura
+## Relazioni chiave
 
+- Users 1:1 Customers
+- Users 1:1 SuperAdmins
+
+- Customers 1:1 Customer_Profiles
+- Customer_Profiles 1:N Addresses
+
+- Customers 1:1 Carts
+- Customers 1:N Orders
+
+- Carts 1:N Cart_Items
+- Cart_Items N:1 Products
+
+- Orders 1:N Order_Items
+- Order_Items N:1 Products
+
+- Orders 1:1 Invoices
+- Orders N:1 Addresses
+
+- Products N:1 Categories
+- Products 1:N Price_Lists

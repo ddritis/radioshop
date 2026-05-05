@@ -1,50 +1,72 @@
 ```mermaid
 erDiagram
     %% Gerarchia Utente
-    UTENTE ||--|{ CLIENTE : "ISA"
-    UTENTE ||--|{ SUPERADMIN : "ISA"
+    USERS ||--|{ CUSTOMERS : "IS_A"
+    USERS ||--|{ SUPERADMINS : "IS_A"
 
-    %% Relazioni Anagrafica e Indirizzo
-    CLIENTE ||--|| ANAGRAFICA : "HA (1,1)"
-    ANAGRAFICA ||--|{ INDIRIZZO : "HA (1,N)"
+    %% Relazioni Anagrafica (CUSTOMER_PROFILES) e Indirizzo (ADDRESSES)
+    CUSTOMERS ||--|| CUSTOMER_PROFILES : "HAS_A (1,1)"
+    CUSTOMER_PROFILES ||--|{ ADDRESSES : "HAS_A (1,N)"
 
     %% Processo d'Acquisto
-    CLIENTE ||--|| CARRELLO : "POSSIEDE (1,1)"
-    CLIENTE ||--|{ ORDINE : "EFFETTUA (1,N)"
+    CUSTOMERS ||--|| CARTS : "POSSIEDE (1,1)"
+    CUSTOMERS ||--|{ ORDERS : "EFFETTUA (1,N)"
     
-    %% Composizione Carrello e Ordine
-    CARRELLO ||--|{ RIGA_CARRELLO : "CONTIENE (1,N)"
-    ORDINE ||--|{ RIGA_ORDINE : "CONTIENE (1,N)"
+    %% Composizione CARTS e ORDERS
+    CARTS ||--|{ CART_ITEMS: "CONTIENE (1,N)"
+    ORDERS ||--|{ ORDER_ITEMS : "CONTIENE (1,N)"
     
     %% Fatturazione
-    ORDINE ||--|| FATTURA : "GENERA (1,1)"
+    ORDERS ||--|| INVOICES : "GENERA (1,1)"
 
-    %% Relazioni con Prodotto
-    RIGA_CARRELLO }|--|| PRODOTTO : "RIFERITO_A (1,1)"
-    RIGA_ORDINE }|--|| PRODOTTO : "RIFERITO_A (1,1)"
+    %% Relazioni con PRODUCTS
+    CART_ITEMS }|--|| PRODUCTS : "RIFERITO_A (1,1)"
+    ORDER_ITEMS }|--|| PRODUCTS : "RIFERITO_A (1,1)"
     
     %% Catalogo e Listini
-    PRODOTTO }|--|| CATEGORIA : "APPARTIENE (1,1)"
-    PRODOTTO }|--|{ LISTINO : "PREZZATO_DA (1,N)"
+    PRODUCTS }|--|| CATEGORIES : "APPARTIENE (1,1)"
+    PRODUCTS }|--|{ PRICE_LISTS : "PREZZATO_DA (1,N)"
 
-    UTENTE {
-        string username
-        string password
+    ORDERS }|--|| ADDRESSES : "SPEDITO_A (1,1)"
+    
+   USERS {
+    int id_user
+    string email
+    string password_hash
+    timestamp created_at
     }
 
-    CLIENTE {
-        int id_cliente
+    CUSTOMERS {
+        int id_customer
     }
 
-    ANAGRAFICA {
-        string nome
-        string cognome
-        string email
-    }
+    CUSTOMER_PROFILES {
+    int id_profile
+    int id_customer
+    string first_name
+    string last_name
+    string phone
+}
 
-    PRODOTTO {
-        int id_prodotto
-        string nome
-        float prezzo_base
-    }
+ PRODUCTS {
+    int id_product
+    int id_category
+    string product_name
+    string description
+    int stock_quantity
+    bool is_active
+    string image_path
+}
+
+    ADDRESSES {
+    int id_address
+    int id_profile
+    string street
+    string building_number
+    string city
+    string postal_code
+    string province
+    string country
+    string address_type
+}
 ```
