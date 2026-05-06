@@ -1,5 +1,5 @@
 <?php
-// controller/AuthController.php
+// #0 controller/AuthController.php
 require_once 'BaseController.php';
 require_once 'model/User.php';
 
@@ -17,17 +17,17 @@ class AuthController extends BaseController
             $userModel = new User();
             $user = $userModel->getByEmail($email);
 
-            // Verifico se l'utente esiste e se la password corrisponde all'hash nel DB
+            // #1 Verifico se l'utente esiste e se la password corrisponde all'hash nel DB
             if ($user && password_verify($password, $user['password_hash'])) {
 
-                // Salviamo i dati essenziali in sessione
+                // #2 Salvo i dati essenziali in sessione
                 $_SESSION['userId'] = $user['id_user'];
                 $_SESSION['userEmail'] = $user['email'];
-                // Uso ucfirst per assicurarci che l'iniziale sia maiuscola
+                // #3 Uso ucfirst per assicurarci che l'iniziale sia maiuscola
                 $_SESSION['userName'] = ucfirst($user['first_name'] ?? 'Utente');
                 $_SESSION['isAdmin'] = ($user['role'] === 'admin');
 
-                // Reindirizzo alla home (o alla dashboard se admin)
+                // #4 Reindirizzo alla home (o alla dashboard se admin)
                 header("Location: index.php?page=home");
                 exit();
             } else {
@@ -45,9 +45,9 @@ class AuthController extends BaseController
     {
         $error = null;
 
-        // Se la richiesta è POST, l'utente sta inviando i dati del form
+        // #5 Se la richiesta è POST, l'utente sta inviando i dati del form
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Recupero i dati (In TPSIT: Fase di recupero parametri HTTP)
+            // #6 Recupero i dati (In TPSIT: Fase di recupero parametri HTTP)
             $email     = $_POST['email'] ?? '';
             $password  = $_POST['password'] ?? '';
             $firstName = $_POST['first_name'] ?? '';
@@ -55,9 +55,9 @@ class AuthController extends BaseController
 
             $userModel = new User();
 
-            // Validazione e persistenza nel Model
+            // #7 Validazione e persistenza nel Model
             if ($userModel->register($email, $password, $firstName, $lastName)) {
-                // Successo: redirect al login
+                // #8 Successo -> redirect al login
                 header("Location: index.php?page=auth&action=login&msg=success");
                 exit();
             } else {
@@ -65,7 +65,7 @@ class AuthController extends BaseController
             }
         }
 
-        // Visualizzazione del form (Sia al primo caricamento GET che in caso di errore)
+        // #9 Visualizzazione del form (sia al primo caricamento GET che in caso di errore)
         $this->renderView('register', [
             'pageTitle' => 'Crea Account',
             'error' => $error
@@ -77,13 +77,13 @@ class AuthController extends BaseController
      */
     public function logout()
     {
-        // Svuoto l'array di sessione
+        // #10 Svuoto l'array di sessione
         $_SESSION = [];
 
-        // Distruggo la sessione sul server
+        // #11 Distruggo la sessione sul server
         session_destroy();
 
-        // Cancello il cookie di sessione se presente
+        // #12 Cancello il cookie di sessione se presente
         if (ini_get("session.use_cookies")) {
             $params = session_get_cookie_params();
             setcookie(
@@ -97,7 +97,7 @@ class AuthController extends BaseController
             );
         }
 
-        // Torno alla home
+        // #13 Torno alla home
         header("Location: index.php?page=home");
         exit();
     }

@@ -1,5 +1,5 @@
 <?php
-// index.php
+// #0 index.php
 session_start();
 
 // #1 Load Core Components
@@ -42,7 +42,7 @@ if (file_exists($controllerFile)) {
             // #5 Dispatch the request
             $controllerObject->$action();
         } else {
-            // Se l'azione non esiste, usiamo la pagina under-construction
+            // Se l'azione non esiste, uso la pagina under-construction
             header("Location: index.php?page=maintenance&action=underConstruction");
             exit();
         }

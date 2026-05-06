@@ -1,4 +1,4 @@
-// public/js/script.js
+// #0 public/js/script.js
 
 /**
  * Funzione per il controllo dei campi del form di registrazione
@@ -39,13 +39,13 @@ function goto5() {
     // #3 Gestione evento click
     document.getElementById("btnAcceptCookies").addEventListener("click", function() {
         let expires = new Date();
-    // Imposto la scadenza a 30 giorni
+    // #4 Imposto la scadenza a 30 giorni
     expires.setTime(expires.getTime() + (30 * 24 * 60 * 60 * 1000));
 
-    // Scrivo il cookie con flag di sicurezza
+    // #5 Scrivo il cookie con flag di sicurezza
     document.cookie = "gdpr_accepted=true;expires=" + expires.toUTCString() + ";path=/;SameSite=Strict";
 
-    // Rimuovo il banner dal flusso visivo
+    // #6 Rimuovo il banner dal flusso visivo
     document.getElementById("cookieConsent").style.display = "none";
     });
 });

@@ -1,9 +1,9 @@
 <?php
-// model/Database.php
+// #0 model/Database.php
 
 class Database
 {
-    // Istanza statica per implementare il pattern Singleton
+    // #1 Istanza statica per implementare il pattern Singleton
     private static $instance = null;
     private $connection;
 
@@ -14,22 +14,22 @@ class Database
     private function __construct()
     {
         try {
-            // Carico le credenziali tramite il mio caricatore di configurazioni JSON
+            // #2 Carico le credenziali tramite il mio caricatore di configurazioni JSON
             $config = new DbConfig();
 
-            // Definizione del Data Source Name (DSN)
+            // #3 Definizione del Data Source Name (DSN)
             $dsn = "mysql:host={$config->host};dbname={$config->dbName};charset=utf8mb4";
 
-            // Opzioni di configurazione PDO per migliorare sicurezza e usabilità
+            // #4 Opzioni di configurazione PDO per migliorare sicurezza e usabilità
             $options = [
-                PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, // Lancio eccezioni in caso di errori SQL
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,       // Restituisco i dati come array associativi
-                PDO::ATTR_EMULATE_PREPARES   => false,                  // Utilizzo i prepared statements reali per sicurezza
+                PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, // #5 Lancio eccezioni in caso di errori SQL
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,       // #6 Restituisco i dati come array associativi
+                PDO::ATTR_EMULATE_PREPARES   => false,                  // #7 Utilizzo i prepared statements reali per sicurezza come abbiamo visto in TPSIT
             ];
 
             $this->connection = new PDO($dsn, $config->username, $config->password, $options);
         } catch (PDOException $e) {
-            // Registro l'errore nel log di sistema senza esporre dati sensibili all'utente
+            // #5 Registro l'errore nel log di sistema senza esporre dati sensibili all'utente
             error_log("Database Connection Error: " . $e->getMessage());
             die("Connessione fallita. Verifico la configurazione.");
         }
@@ -42,10 +42,10 @@ class Database
     public static function getInstance()
     {
         if (self::$instance === null) {
-            // Se l'istanza non esiste, la creo richiamando il costruttore privato
+            // #6 Se l'istanza non esiste, la creo richiamando il costruttore privato
             self::$instance = new Database();
         }
-        // Restituisco l'oggetto connessione PDO
+        // #7 Restituisco l'oggetto connessione PDO
         return self::$instance->connection;
     }
 }

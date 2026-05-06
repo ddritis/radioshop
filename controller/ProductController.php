@@ -1,5 +1,5 @@
 <?php
-// controller/ProductController.php
+// #0 controller/ProductController.php
 require_once 'BaseController.php';
 require_once 'model/Product.php';
 
@@ -21,7 +21,8 @@ class ProductController extends BaseController
         $product = $productModel->getById($id);
 
         if (!$product) {
-            // Miglioramento TPSIT: invece di die(), usiamo il fail-safe
+            // #1 Miglioramento TPSIT: invece di die(), uso il fail-safe cioé la pagina catch-all che ho chiamato "under construction"
+            // TODO: implementare una pagina 404, GitHub issue #9
             header("Location: index.php?page=maintenance&action=underConstruction");
             exit();
         }
@@ -38,7 +39,7 @@ class ProductController extends BaseController
      */
     public function category()
     {
-        // Cambiato 'family' in 'type' per leggere correttamente l'URL della navbar
+        // #2 Cambiato 'family' in 'type' per leggere correttamente l'URL della navbar
         $type = $_GET['type'] ?? null;
 
         if (!$type) {
@@ -48,16 +49,16 @@ class ProductController extends BaseController
 
         $productModel = new Product();
 
-        // Passiamo il parametro al Model per la query filtrata
+        // #3 Passo il parametro al Model per la query filtrata
         $products = $productModel->getByFamily($type);
 
-        // Gestione errori: se non ci sono prodotti, fail-safe verso manutenzione
+        // #4 Gestione errori: se non ci sono prodotti, fail-safe verso "in costruzione"
         if (!$products) {
             header("Location: index.php?page=maintenance&action=underConstruction");
             exit();
         }
 
-        // Titolo dinamico basato sul tipo
+        // #5 Titolo dinamico basato sul tipo
         $displayTitle = "Famiglia " . ucfirst($type) . " Pi";
 
         $this->renderView('category_list', [
@@ -70,10 +71,10 @@ class ProductController extends BaseController
     public function list()
     {
         $productModel = new Product();
-        // Recuperiamo tutti i prodotti attivi senza filtri di categoria
+        // #6 Recupero tutti i prodotti attivi senza filtri di categoria
         $products = $productModel->getAllActive();
 
-        // Se il DB è vuoto, usiamo il nostro fail-safe
+        // #7 Se il DB è vuoto, uso la pagina fail-safe "in costruzione"
         if (!$products) {
             header("Location: index.php?page=maintenance&action=underConstruction");
             exit();

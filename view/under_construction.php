@@ -1,11 +1,10 @@
 <?php
-// view/under_construction.php
+// #0 view/under_construction.php
 ?>
 <main class="container-lg text-center my-5">
     <div class="row justify-content-center">
         <div class="col-md-10 col-lg-8">
-
-            <!-- Alert con stile Radioshop -->
+            
             <div class="alert alert-warning border-warning shadow-sm py-3">
                 <h2 class="fw-bold">⚠️ PAGINA IN COSTRUZIONE ⚠️</h2>
                 <p class="fs-5 mb-0">
@@ -14,7 +13,7 @@
                 </p>
             </div>
 
-            <!-- Immagine scalata al 50% della larghezza del contenitore -->
+            <!-- #1 Immagine scalata al 50% della larghezza del contenitore -->
             <div class="d-flex justify-content-center">
                 <img src="<?php echo $imagePath; ?>"
                     class="img-fluid mb-4 shadow rounded w-50"

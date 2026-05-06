@@ -1,4 +1,5 @@
 <?php
+// #0 model/DbConfig.php
 
 class DbConfig
 {
@@ -16,7 +17,7 @@ class DbConfig
         $path = 'config/database.json';
 
         try {
-            // Verifico se il file di configurazione esiste nel percorso stabilito.
+            // #1 Verifico se il file di configurazione esiste nel percorso stabilito.
             if (!file_exists($path)) {
                 throw new Exception("File di configurazione non trovato in: " . $path);
             }
@@ -24,18 +25,18 @@ class DbConfig
             $jsonContent = file_get_contents($path);
             $config = json_decode($jsonContent, true);
 
-            // Verifico se la decodifica JSON è fallita o se mancano le chiavi obbligatorie (host, database).
+            // #2 Verifico se la decodifica JSON è fallita o se mancano le chiavi obbligatorie (host, database).
             if ($config === null || !isset($config['host'], $config['database'])) {
                 throw new Exception("Formato JSON non valido o corrotto in: " . $path);
             }
 
-            // Assegno i valori estratti alle proprietà della classe per renderli disponibili.
+            // #3 Assegno i valori estratti alle proprietà della classe per renderli disponibili.
             $this->host = $config['host'];
             $this->username = $config['username'];
             $this->password = $config['password'];
             $this->dbName = $config['database'];
         } catch (Exception $e) {
-            // In caso di errore critico, interrompo l'esecuzione mostrando un messaggio chiaro.
+            // #4 In caso di errore critico, interrompo l'esecuzione mostrando un messaggio chiaro.
             die("Errore di configurazione del Database: " . $e->getMessage());
         }
     }

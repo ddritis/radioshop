@@ -1,5 +1,5 @@
 <?php
-// model/Cart.php
+// #0 model/Cart.php
 
 class Cart
 {
@@ -7,7 +7,7 @@ class Cart
 
     public function __construct()
     {
-        // Ottengo l'istanza del database tramite il pattern Singleton
+        // #1 Ottengo l'istanza del database tramite il pattern Singleton https://it.wikipedia.org/wiki/Singleton_(informatica)
         $this->db = Database::getInstance();
     }
 
@@ -16,22 +16,22 @@ class Cart
      */
     public function getOrCreateCart($customerId)
     {
-        // Cerco se esiste già un carrello attivo per questo cliente
+        // #2 Cerco se esiste già un carrello attivo per questo cliente
         $sql = "SELECT id_cart FROM carts WHERE id_customer = :id";
         $stmt = $this->db->prepare($sql);
         $stmt->execute(['id' => $customerId]);
         $cart = $stmt->fetch();
 
         if ($cart) {
-            // Se lo trovo, restituisco l'ID esistente
+            // #3 Se lo trovo, restituisco l'ID esistente
             return $cart['id_cart'];
         }
 
-        // Se non esiste, ne inserisco uno nuovo per l'utente
+        // #4 Se non esiste, ne inserisco uno nuovo per l'utente
         $sqlInsert = "INSERT INTO carts (id_customer) VALUES (:id)";
         $this->db->prepare($sqlInsert)->execute(['id' => $customerId]);
 
-        // Restituisco l'ultimo ID generato dal database
+        // #5 Restituisco l'ultimo ID generato dal database
         return $this->db->lastInsertId();
     }
 
@@ -40,7 +40,7 @@ class Cart
      */
     public function getItems($userId)
     {
-        // Eseguo una query complessa unendo prodotti e listini prezzi validi
+        // #6 Eseguo una query complessa unendo prodotti e listini prezzi validi
         $sql = "SELECT p.product_name, p.id_product, ci.quantity, pl.price, 
             (ci.quantity * pl.price) AS subtotal
             FROM cart_items ci
@@ -53,7 +53,7 @@ class Cart
         $stmt = $this->db->prepare($sql);
         $stmt->execute(['userId' => $userId]);
 
-        // Restituisco l'elenco completo degli elementi trovati
+        // #7 Restituisco l'elenco completo degli elementi trovati
         return $stmt->fetchAll();
     }
 
@@ -62,14 +62,14 @@ class Cart
      */
     public function addProduct($cartId, $productId, $quantity)
     {
-        // Utilizzo segnaposti distinti per gestire correttamente l'inserimento e l'aggiornamento
+        // #8 Utilizzo segnaposti distinti per gestire correttamente l'inserimento e l'aggiornamento
         $sql = "INSERT INTO cart_items (id_cart, id_product, quantity) 
             VALUES (:cart, :prod, :qty_insert)
             ON DUPLICATE KEY UPDATE quantity = quantity + :qty_update";
 
         $stmt = $this->db->prepare($sql);
 
-        // Eseguo il comando passando i parametri sanitizzati tramite PDO
+        // #9 Eseguo il comando passando i parametri sanitizzati tramite PDO
         return $stmt->execute([
             'cart'       => $cartId,
             'prod'       => $productId,
@@ -80,11 +80,11 @@ class Cart
 
     public function clearCart($userId)
     {
-        // Recupero l'ID del carrello dell'utente
+        //#10 Recupero l'ID del carrello dell'utente
         $cartId = $this->getOrCreateCart($userId);
 
-        // Query SQL per eliminare tutti i prodotti associati a quel carrello
-        // Nota: usiamo i Prepared Statements per la sicurezza applicativa
+        // #11 Query SQL per eliminare tutti i prodotti associati a quel carrello
+        // #12 nota per TPSIT: uso i Prepared Statements per la sicurezza applicativa
         $sql = "DELETE FROM cart_items WHERE id_cart = :id_cart";
 
         $stmt = $this->db->prepare($sql);

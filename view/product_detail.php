@@ -1,8 +1,8 @@
 <?php
-// view/product_detail.php
-// Assumiamo che $product sia stato recuperato dal Controller tramite il Model
+// #0 view/product_detail.php
+// #1 Assumo che $product sia stato recuperato dal Controller tramite il Model
 
-// #1 Logica di routing degli asset (come fatto in homepage)
+// #2 Logica di routing degli asset (come fatto in homepage)
 $dbFileName = isset($product['image_path']) ? trim($product['image_path']) : '';
 
 if (!empty($dbFileName) && $dbFileName !== 'placeholder.png') {
@@ -14,7 +14,7 @@ if (!empty($dbFileName) && $dbFileName !== 'placeholder.png') {
 
 <main class="container-lg my-5">
     <div class="row align-items-center">
-        <!-- Colonna Immagine -->
+        <!-- #3 Colonna immagine -->
         <div class="col-md-6 text-center mb-4 mb-md-0">
             <div class="p-3 border rounded shadow-sm bg-white">
                 <img src="<?php echo htmlspecialchars($imagePath); ?>"
@@ -24,7 +24,7 @@ if (!empty($dbFileName) && $dbFileName !== 'placeholder.png') {
             </div>
         </div>
 
-        <!-- Colonna Info -->
+        <!-- #4 Colonna info -->
         <div class="col-md-6">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -42,7 +42,7 @@ if (!empty($dbFileName) && $dbFileName !== 'placeholder.png') {
                 </h5>
                 <ul class="list-unstyled">
                     <?php
-                    // Validazione dati: trasformiamo la descrizione in lista
+                    // #5 Validazione dati: trasformo la descrizione in lista
                     $description = $product['description'] ?? '';
                     $specs = explode("\n", $description);
 

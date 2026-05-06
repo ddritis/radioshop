@@ -1,5 +1,5 @@
 <?php
-// model/Order.php
+// #0 model/Order.php
 
 class Order
 {
@@ -15,7 +15,7 @@ class Order
      */
     public function createOrder($userId, $totalAmount, $items)
     {
-        // #0 Recupero indirizzo del cliente
+        // #1 Recupero indirizzo del cliente
         $stmt = $this->db->prepare("
             SELECT a.id_address
             FROM customer_profiles cp
@@ -31,7 +31,7 @@ class Order
             throw new Exception("Missing customer profile data");
         }
 
-        // #1 Inserimento dell'ordine
+        // #2 Inserimento dell'ordine
         $sqlOrder = "INSERT INTO orders (id_customer, id_address, status) 
              VALUES (:uid, :address_id, 'paid')";
         $stmtOrder = $this->db->prepare($sqlOrder);
@@ -42,7 +42,7 @@ class Order
 
         $orderId = $this->db->lastInsertId();
 
-        // #2 Spostamento prodotti nel dettaglio ordine
+        // #3 Spostamento prodotti nel dettaglio ordine
         foreach ($items as $item) {
             $sqlItem = "INSERT INTO order_items (id_order, id_product, quantity, unit_price) 
                     VALUES (:oid, :pid, :qty, :price)";
@@ -54,7 +54,7 @@ class Order
             ]);
         }
 
-        // #3 Generazione fattura (Qui total_amount esiste nello schema!)
+        // #4 Generazione fattura (Qui total_amount esiste nello schema!)
         $invoiceNum = "INV-" . date("Ymd") . "-" . $orderId;
         $sqlInv = "INSERT INTO invoices (id_order, invoice_number, total_amount) 
                VALUES (:oid, :num, :total)";
@@ -64,7 +64,7 @@ class Order
             'total' => $totalAmount
         ]);
 
-        // #4 Svuotamento del carrello
+        // #5 Svuotamento del carrello
         $sqlClear = "DELETE ci FROM cart_items ci 
                  JOIN carts c ON ci.id_cart = c.id_cart 
                  WHERE c.id_customer = :uid";
@@ -105,7 +105,7 @@ class Order
     }
 
     /**
-     * Recupera i prodotti inclusi in un ordine specifico 📦
+     * Recupera i prodotti inclusi in un ordine specifico
      */
     public function getOrderItems($orderId)
     {
@@ -116,6 +116,6 @@ class Order
 
         $stmt = $this->db->prepare($sql);
         $stmt->execute(['oid' => $orderId]);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC); // Recuperiamo tutte le righe
+        return $stmt->fetchAll(PDO::FETCH_ASSOC); // #6 Recupero tutte le righe
     }
 }

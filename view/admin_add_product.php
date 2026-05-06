@@ -1,10 +1,11 @@
+<!-- #0 view/admin_add_product.php -->
 <main class="container-lg my-5">
     <div class="card shadow-sm no-zoom border-purple">
         <div class="card-header bg-purple text-white py-3">
             <h3 class="mb-0 h4 text-uppercase fw-bold">➕ Aggiungi Nuovo Prodotto</h3>
         </div>
         <div class="card-body p-4">
-            <!-- Fondamentale: enctype="multipart/form-data" per il caricamento file -->
+            <!-- #1 necessario enctype="multipart/form-data" per il caricamento file -->
             <form action="index.php?page=admin&action=doAdd" method="POST" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label class="form-label fw-bold">Nome Prodotto</label>

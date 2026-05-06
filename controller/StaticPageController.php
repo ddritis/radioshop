@@ -1,5 +1,5 @@
 <?php
-// controller/StaticPageController.php
+// #0 controller/StaticPageController.php
 
 class StaticPageController extends BaseController
 {
@@ -37,25 +37,25 @@ class StaticPageController extends BaseController
     }
 
     /**
-     * Gestisce l'invio del form di contatto
+     * Gestisce l'invio del form di contatto (per finta al momento)
      * Rotta: index.php?page=staticPage&action=submitContact
      */
     public function submitContact()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            //  Sanitizzazione input
+            // #1  Sanitizzazione input
             $name    = htmlspecialchars(strip_tags($_POST['name'] ?? ''));
             $email   = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
             $message = htmlspecialchars(strip_tags($_POST['message'] ?? ''));
 
-            // Verifica funzionale dei dati
+            // #2 Verifica funzionale dei dati
             if (empty($name) || !filter_var($email, FILTER_VALIDATE_EMAIL) || empty($message)) {
                 header("Location: index.php?page=staticPage&action=contact&status=error");
                 exit();
             }
 
-            // In una web app reale qui scriverei una mail o scriverei nel DB
-            // Per ora simulo il successo e reindirizzo solamente
+            // #3 In una web app reale qui scriverei una mail o scriverei nel DB
+            // #4 Per ora simulo il successo e reindirizzo solamente
             header("Location: index.php?page=staticPage&action=contact&status=success");
             exit();
         }

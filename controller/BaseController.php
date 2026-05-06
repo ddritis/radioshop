@@ -1,5 +1,5 @@
 <?php
-// controller/BaseController.php
+// #0 controller/BaseController.php
 
 abstract class BaseController
 {
@@ -13,9 +13,9 @@ abstract class BaseController
         $headerPath = "view/partials/header.php";
         $footerPath = "view/partials/footer.php";
 
-        // Verifica funzionale: controllo l'esistenza del file sul filesystem
+        // #1 Verifica funzionale: controllo l'esistenza del file sul filesystem
         if (file_exists($viewPath)) {
-            // Estraggo l'array in variabili singole per le view
+            // #2 Estraggo l'array in variabili singole per le view
             extract($data);
 
             require_once $headerPath;
@@ -38,9 +38,9 @@ abstract class BaseController
      */
     protected function checkAdmin()
     {
-        // Verifico lo stato della sessione
+        // #3 Verifico lo stato della sessione
         if (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] !== true) {
-            // Logging dell'accesso negato per debugging
+            // #4 Logging dell'accesso negato per debugging
             error_log("Accesso non autorizzato tentato da User ID: " . ($_SESSION['userId'] ?? 'Guest'));
 
             header("Location: index.php?page=home&error=unauthorized");

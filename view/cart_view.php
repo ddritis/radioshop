@@ -1,3 +1,4 @@
+<!-- #0 view/cart_view.php -->
 <main class="container-lg my-5">
     <h1 class="mb-4 fw-bold">Il tuo Carrello 🛒</h1>
 

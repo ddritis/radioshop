@@ -1,4 +1,4 @@
-<!-- view/category_list.php -->
+<!-- #0 view/category_list.php -->
 <main class="container my-5">
     <div class="border-bottom pb-3 mb-4">
         <h2 class="fw-bold" style="color: var(--radioshop-purple);">

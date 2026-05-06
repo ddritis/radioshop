@@ -1,8 +1,4 @@
-<?php
-// view/order_success.php
-// Nota: Header e Footer sono gestiti dal BaseController
-?>
-
+<!-- #0 view/order_success.php -->
 <main class="container-lg my-5 text-center">
     <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6">

@@ -1,6 +1,6 @@
-<!-- view/about.php -->
+<!-- #0 view/about.php -->
 <main class="container my-5">
-    <!-- Sezione Hero: Titolo e Tux centrati -->
+    <!-- #1 Sezione centrale: titolo e Tux centrati -->
     <div class="row align-items-center justify-content-center mb-5">
         <div class="col-lg-4 text-center text-lg-end">
             <h1 class="display-6 fw-bold" style="color: var(--radioshop-purple);">Radioshop Lab</h1>
@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <!-- Sezione Team/Sviluppatore -->
+    <!-- #2 Sezione team/sviluppatore -->
     <div class="row justify-content-center mt-5">
         <div class="col-md-8 text-center bg-light p-5 rounded-4 shadow-sm border-top border-4" style="border-color: #7C3AC1 !important;">
             <h2 class="fw-bold mb-4">Lo Sviluppatore</h2>
@@ -31,7 +31,7 @@
                 </a>
             </div>
 
-            <!-- Stack Tecnologico con Emoji e Link -->
+            <!-- #3 Stack tecnologico con link -->
             <div class="mb-5">
                 <h6 class="text-uppercase text-muted small fw-bold mb-3">Stack Tecnologico</h6>
                 <div class="d-flex flex-wrap justify-content-center gap-2">
@@ -50,7 +50,7 @@
         </div>
     </div>
 
-    <!-- Box Scuola -->
+    <!-- #4 Box scuola -->
     <div class="row justify-content-center mt-4">
         <div class="col-md-6 text-center">
             <div class="card border-0 shadow-sm bg-light">

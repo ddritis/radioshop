@@ -1,34 +1,50 @@
 <?php
-// model/User.php
+// #0 model/User.php
 class User
 {
     private $db;
 
     public function __construct()
     {
-        // Ottengo l'istanza del database tramite il pattern Singleton
+        // #1 Ottengo l'istanza del database tramite il pattern Singleton
         $this->db = Database::getInstance();
     }
 
+    /**
+     * Registra un nuovo account cliente all'interno dell'applicazione (non valida per Amministratore).
+     *
+     * Il metodo esegue l'intero workflow di registrazione:
+     * - genera l'hash sicuro della password tramite password_hash()
+     * - crea il record di autenticazione nella tabella users
+     * - crea il record associato nella tabella customers
+     * - crea il profilo cliente con i dati anagrafici
+     *
+     * @param string $email      Indirizzo email dell'utente
+     * @param string $password   Password in chiaro inserita durante la registrazione
+     * @param string $firstName  Nome del cliente
+     * @param string $lastName   Cognome del cliente
+     *
+     * @return bool Restituisce true in caso di successo, false in caso di errore
+     */
     public function register($email, $password, $firstName, $lastName)
     {
         try {
-            // #1 Eseguo l'hashing della password come abbiamo visto in TPSIT
+            // #2 Eseguo l'hashing della password come abbiamo visto in TPSIT
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-            // #2 Inserisco i dati nella tabella 'users'
+            // #3 Inserisco i dati nella tabella 'users'
             $sqlUser = "INSERT INTO users (email, password_hash) VALUES (:email, :password)";
             $stmtUser = $this->db->prepare($sqlUser);
             $stmtUser->execute(['email' => $email, 'password' => $hashedPassword]);
 
             $userId = $this->db->lastInsertId();
 
-            // #3 Inserisco l'ID nella tabella 'customers'
+            // #4 Inserisco l'ID nella tabella 'customers'
             $sqlCust = "INSERT INTO customers (id_customer) VALUES (:id)";
             $stmtCust = $this->db->prepare($sqlCust);
             $stmtCust->execute(['id' => $userId]);
 
-            // #4 Inserisco i dettagli anagrafici nella tabella 'customer_profiles'
+            // #5 Inserisco i dettagli anagrafici nella tabella 'customer_profiles'
             $sqlProf = "INSERT INTO customer_profiles (id_customer, first_name, last_name) VALUES (:id, :f_name, :l_name)";
             $stmtProf = $this->db->prepare($sqlProf);
             $stmtProf->execute([
@@ -39,7 +55,7 @@ class User
 
             return true;
         } catch (Exception $e) {
-            // Registro l'errore nel log di sistema se qualcosa va storto durante la registrazione
+            // #6 Registro l'errore nel log di sistema se qualcosa va storto durante la registrazione
             error_log("Errore in fase di registrazione: " . $e->getMessage());
             return false;
         }
@@ -50,7 +66,7 @@ class User
      */
     public function getByEmail($email)
     {
-        // Eseguo una LEFT JOIN con la tabella superadmins per identificare il ruolo dell'utente
+        // #7 Eseguo una LEFT JOIN con la tabella superadmins per identificare il ruolo dell'utente
         $sql = "SELECT u.*, cp.first_name,
             CASE WHEN s.id_superadmin IS NOT NULL THEN 'admin' ELSE 'customer' END as role
             FROM users u
@@ -100,8 +116,7 @@ class User
      */
     public function getUserById($id)
     {
-        // Recupero l'email (che funge da username nel sistema) 
-        // e i dettagli dal profilo
+        // #8 Recupero l'email (che funge da username nel sistema) e i dettagli dal profilo
         $sql = "SELECT u.id_user, u.email, cp.first_name, cp.last_name, u.created_at,
          cp.phone, ad.street, ad.postal_code, ad.city, ad.province, ad.country, ad.building_number
             FROM users u
@@ -130,7 +145,7 @@ class User
         try {
             $this->db->beginTransaction();
 
-            // Recupero il profilo cliente
+            // #9 Recupero il profilo cliente
             $sqlProfile = "SELECT id_profile 
                        FROM customer_profiles 
                        WHERE id_customer = :user_id";
@@ -145,7 +160,7 @@ class User
 
             $profileId = $profile['id_profile'];
 
-            // Aggiorno il numero di telefono
+            // #10 Aggiorno il numero di telefono
             $sqlUpdateProfile = "UPDATE customer_profiles
                              SET phone = :phone
                              WHERE id_profile = :profile_id";
@@ -156,7 +171,7 @@ class User
                 'profile_id' => $profileId
             ]);
 
-            // Verifico se esiste già un indirizzo per il profilo
+            // #11 Verifico se esiste già un indirizzo per il profilo
             $sqlAddress = "SELECT id_address
                        FROM addresses
                        WHERE id_profile = :profile_id";
@@ -166,7 +181,7 @@ class User
             $address = $stmtAddress->fetch(PDO::FETCH_ASSOC);
 
             if ($address) {
-                // Aggiorno indirizzo esistente
+                // #12 Aggiorno indirizzo esistente
                 $sqlUpdateAddress = "UPDATE addresses
                                  SET street = :street,
                                      building_number = :building_number,
@@ -187,7 +202,7 @@ class User
                     'address_id'      => $address['id_address']
                 ]);
             } else {
-                // Inserisco nuovo indirizzo
+                // #13 Inserisco nuovo indirizzo
                 $sqlInsertAddress = "INSERT INTO addresses 
                                  (id_profile, street, building_number, postal_code, city, province, country)
                                  VALUES 

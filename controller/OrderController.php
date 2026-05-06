@@ -1,5 +1,5 @@
 <?php
-// controller/OrderController.php
+// #0 controller/OrderController.php
 require_once 'BaseController.php';
 require_once 'model/Cart.php';
 require_once 'model/Order.php';
@@ -11,7 +11,7 @@ class OrderController extends BaseController
      */
     public function checkout()
     {
-        // Verifico che l'utente sia loggato prima di procedere
+        // #1 Verifico che l'utente sia loggato prima di procedere
         if (!isset($_SESSION['userId'])) {
             header("Location: index.php?page=auth&action=login");
             exit();
@@ -21,23 +21,23 @@ class OrderController extends BaseController
         $cartModel = new Cart();
         $orderModel = new Order();
 
-        // Recupero gli elementi attualmente presenti nel carrello per il calcolo finale
+        // #2 Recupero gli elementi attualmente presenti nel carrello per il calcolo finale
         $items = $cartModel->getItems($userId);
 
-        // Se il carrello è vuoto, reindirizzo l'utente alla home
+        // #3 Se il carrello è vuoto, reindirizzo l'utente alla home
         if (empty($items)) {
             header("Location: index.php?page=home");
             exit();
         }
 
-        // Calcolo il totale dell'ordine sommando i subtotali degli elementi
+        // #4 Calcolo il totale dell'ordine sommando i subtotali degli elementi
         $total = 0;
         foreach ($items as $item) {
             $total += $item['subtotal'];
         }
 
         try {
-            // Registro l'ordine nel database tramite il Model
+            // #5 Registro l'ordine nel database tramite il Model
             $orderId = $orderModel->createOrder($userId, $total, $items);
         } catch (Exception $e) {
             if ($e->getMessage() === "Missing customer profile data") {
@@ -49,7 +49,7 @@ class OrderController extends BaseController
         }
 
         if ($orderId) {
-            // Se l'ordine è creato con successo, mostro la pagina di conferma
+            // #6 Se l'ordine è creato con successo, mostro la pagina di conferma
             $this->renderView('order_success', [
                 'pageTitle' => 'Ordine Completato',
                 'orderId'   => $orderId
@@ -59,7 +59,7 @@ class OrderController extends BaseController
 
     public function invoice()
     {
-        // Sicurezza applicativa: Accesso solo ad utenti autenticati
+        // #7 Accesso solo ad utenti autenticati
         if (!isset($_SESSION['userId'])) {
             header("Location: index.php?page=auth&action=login");
             exit();
@@ -68,24 +68,24 @@ class OrderController extends BaseController
         $orderId = $_GET['id'] ?? null;
         $orderModel = new Order();
 
-        // Recupero dati: Interazione con DB (Persistence Layer)
-        // Passiamo anche l'ID utente per garantire che veda solo i propri ordini
+        // #8 Recupero dati dal DB
+        // #9 Passo anche l'ID utente per garantire che veda solo i propri ordini
         $order = $orderModel->getOrderDetails($orderId, $_SESSION['userId']);
 
         if (!$order) {
-            // Gestione errori: se l'ordine non esiste o non appartiene all'utente
+            // #10 Gestione errori: se l'ordine non esiste o non appartiene all'utente
             header("Location: index.php?page=user&action=orders&error=not_found");
             exit();
         }
 
-        // #2 RECUPERO PRODOTTI DELL'ORDINE
+        // #11 Recupero i prodotti dell'ordine
         $items = $orderModel->getOrderItems($orderId);
 
-        // Presentation Layer: Caricamento della View specifica
+        // #12 "Chiamo" la View specifica
         $this->renderView('order_invoice', [
             'pageTitle' => 'Dettaglio Fattura #' . $order['invoice_number'],
             'order'     => $order,
-            'items'     => $items // Passiamo i prodotti alla View
+            'items'     => $items // #13 Passo i prodotti alla View
         ]);
     }
 }

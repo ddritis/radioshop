@@ -1,3 +1,4 @@
+<!-- #0 view/user_profile.php -->
 <main class="container my-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -16,7 +17,7 @@
                         <div class="col-sm-4 text-muted">Nome Utente:</div>
                         <div class="col-sm-8 fw-bold">
                             <?php
-                            // Verifichiamo se nome e cognome esistono, altrimenti usiamo l'email
+                            // #1 Verifico se nome e cognome esistono, altrimenti uso l'email
                             if (!empty($user['first_name']) && !empty($user['last_name'])) {
                                 echo htmlspecialchars($user['first_name'] . " " . $user['last_name']);
                             } else {
@@ -92,7 +93,7 @@
     </div>
 </main>
 
-<!-- Modal di conferma per la sicurezza applicativa -->
+<!-- #2 Modale (Bootstrap https://getbootstrap.com/docs/4.0/components/modal/) di conferma -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

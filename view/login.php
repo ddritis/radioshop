@@ -1,8 +1,4 @@
-<?php
-// view/login.php
-// Nota: Header e Footer sono gestiti dal BaseController
-?>
-
+<!-- #0 view/login.php -->
 <main class="container-lg my-5">
     <div class="row justify-content-center">
         <div class="col-md-6 col-lg-4">

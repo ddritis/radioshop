@@ -1,5 +1,5 @@
 <?php
-// model/Product.php
+// #0 model/Product.php
 
 class Product
 {
@@ -15,7 +15,7 @@ class Product
      */
     public function getAllActive()
     {
-        // AGGIUNTO: p.image_path nella SELECT
+        // #1 ottengo i prodotti flaggati come attivi
         $sql = "SELECT p.id_product, p.product_name, p.description, p.image_path, pl.price, c.category_name 
             FROM products p
             JOIN price_lists pl ON p.id_product = pl.id_product
@@ -40,7 +40,7 @@ class Product
             AND pl.valid_from <= CURDATE()";
 
         $stmt = $this->db->prepare($sql);
-        // Uso il prepared statement per evitare SQL Injection
+        // #2 Uso il prepared statement per evitare SQL Injection
         $stmt->execute(['id' => $id]);
         return $stmt->fetch();
     }
@@ -51,7 +51,7 @@ class Product
      */
     public function getByFamily($family)
     {
-        // Utilizziamo i Prepared Statements (:family) per la protezione SQL Injection
+        // #3 Utilizzo i Prepared Statements (ad esempio :family) per la protezione SQL Injection come visto in classe
         $sql = "SELECT p.id_product, p.product_name, p.description, p.image_path, pl.price, c.category_name 
                 FROM products p
                 JOIN price_lists pl ON p.id_product = pl.id_product
@@ -63,7 +63,7 @@ class Product
 
         $stmt = $this->db->prepare($sql);
 
-        // Esecuzione sicura del comando SQL
+        // #4 Esecuzione sicura del comando SQL
         $stmt->execute(['family' => $family]);
 
         return $stmt->fetchAll();
@@ -75,10 +75,10 @@ class Product
     public function insert($name, $price, $stock, $image, $id_cat, $description)
     {
         try {
-            // Iniziamo una transazione per sicurezza applicativa
+            // #5 Inizio una transazione perché la query è "lunga", per sicurezza è meglio così (lo abbiamo visto in Informatica)
             $this->db->beginTransaction();
 
-            // Passaggio 1: Inserimento anagrafica prodotto
+            // #6 primo step: inserimento anagrafica prodotto
             $sqlProd = "INSERT INTO products (product_name, id_category, stock_quantity, image_path, is_active, description) 
                     VALUES (:name, :id_cat, :stock, :image, 1, :description)";
             $stmtProd = $this->db->prepare($sqlProd);
@@ -90,9 +90,9 @@ class Product
                 'description' => $description
             ]);
 
-            $newProductId = $this->db->lastInsertId(); // Recuperiamo l'ID generato
-
-            // Passaggio 2: Inserimento prezzo nella tabella dedicata
+            $newProductId = $this->db->lastInsertId(); // #7 Recupero l'ID generato
+            
+            // #8 secondo step: inserimento prezzo nella tabella dedicata
             $sqlPrice = "INSERT INTO price_lists (id_product, price, valid_from) 
                      VALUES (:id_p, :price, CURDATE())";
             $stmtPrice = $this->db->prepare($sqlPrice);
@@ -101,22 +101,22 @@ class Product
                 'price' => $price
             ]);
 
-            $this->db->commit(); // Faccio il commit al DB
+            $this->db->commit(); // #9 Faccio il commit al DB
             return true;
         } catch (PDOException $e) {
-            $this->db->rollBack(); // Se qualcosa fallisce, annullo tutto
+            $this->db->rollBack(); // #10 Se qualcosa fallisce, annullo tutto tramite un Rollback (lo abbiamo visto in Informatica)
             error_log("Errore Transazione: " . $e->getMessage());
             return false;
         }
     }
 
     /**
-     * Eliminazione Logica di un prodotto (Soft Delete) 🗑️
+     * Eliminazione Logica di un prodotto (lo contrassegno come non attivo per evitare di "rompere" il database)
      */
     public function delete($id)
     {
         try {
-            // Non eliminiamo la riga, cambiamo solo lo stato
+            // #11 Non elimino la riga, cambio solo lo stato
             $sql = "UPDATE products SET is_active = 0 WHERE id_product = :id";
 
             $stmt = $this->db->prepare($sql);

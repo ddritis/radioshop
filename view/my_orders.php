@@ -1,7 +1,4 @@
-<?php
-// view/my_orders.php
-?>
-
+<!-- #0 view/my_orders.php -->
 <main class="container-lg my-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="fw-bold text-uppercase mb-0">I tuoi Ordini</h1>

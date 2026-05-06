@@ -1,5 +1,5 @@
 <?php
-// controller/UserController.php
+// #0 controller/UserController.php
 require_once 'BaseController.php';
 require_once 'model/User.php';
 require_once 'model/Order.php';
@@ -56,9 +56,10 @@ class UserController extends BaseController
 
         $userModel = new User();
 
-        // In TPSIT, l'eliminazione è un'operazione critica sui dati
+        // #1 In TPSIT, l'eliminazione è un'operazione critica sui dati, per ora vengono anonimizzati
+        // TODO: implementare anonimizzazione dati, GitHub issue #8
         if ($userModel->deleteUser($_SESSION['userId'])) {
-            // Logout forzato dopo la cancellazione
+            // #2 Logout forzato dopo la cancellazione
             session_destroy();
             header("Location: index.php?page=home&msg=account_deleted");
         } else {
@@ -88,13 +89,13 @@ class UserController extends BaseController
 
     public function updateProfile()
     {
-        // Verifico che l'utente sia autenticato
+        // #3 Verifico che l'utente sia autenticato
         if (!isset($_SESSION['userId'])) {
             header("Location: index.php?page=auth&action=login");
             exit();
         }
 
-        // Verifico che la richiesta arrivi tramite POST
+        // #4 Verifico che la richiesta arrivi tramite POST
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             header("Location: index.php?page=user&action=profile");
             exit();
@@ -102,7 +103,7 @@ class UserController extends BaseController
 
         $userId = $_SESSION['userId'];
 
-        // Recupero e pulizia dati
+        // #5 Recupero e pulizia dati
         $data = [
             'phone'           => trim($_POST['phone'] ?? ''),
             'street'          => trim($_POST['street'] ?? ''),
@@ -113,7 +114,7 @@ class UserController extends BaseController
             'country'         => trim($_POST['country'] ?? '')
         ];
 
-        // Validazione minima
+        // #6 Validazione minima
         foreach ($data as $value) {
             if (empty($value)) {
                 header("Location: index.php?page=user&action=editProfile&error=empty_fields");
@@ -123,10 +124,10 @@ class UserController extends BaseController
 
         $userModel = new User();
 
-        // Salvataggio dati profilo
+        // #7 Salvataggio dati profilo
         $userModel->saveProfileData($userId, $data);
 
-        // Redirect finale
+        // #8 Redirect finale
         header("Location: index.php?page=user&action=profile&success=profile_updated");
         exit();
     }

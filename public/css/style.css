@@ -1,6 +1,6 @@
-/* public/css/style.css */
+/* #0 public/css/style.css */
 
-/* Giallo personalizzato per bottoni e header card */
+/* #1 Giallo personalizzato per bottoni e header card */
 .btn-warning,
 .text-bg-warning,
 .border-warning {
@@ -8,7 +8,7 @@
     border-color: #ffc107 !important;
 }
 
-/* Stile per le card */
+/* #2 Stile per le card */
 .card {
     transition: transform 0.2s;
     border-width: 2px;
@@ -19,7 +19,7 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Utility to disable the zoom effect on specific cards */
+/* #3 Utility to disable the zoom effect on specific cards */
 .no-zoom:hover {
     transform: none !important;
 }
@@ -31,63 +31,61 @@
     object-fit: contain;
 }
 
-/* Stile per la navbar personalizzata */
+/* #4 Stile per la navbar personalizzata */
 .navbar {
     background-color: #ffc107 !important;
-    /* Giallo warning standard */
+    /* #5 Giallo warning standard */
 }
 
-/* Stile per le immagini delle card */
+/* #6 Stile per le immagini delle card */
 .card-img-top {
     height: 200px;
     object-fit: contain;
     padding: 15px;
 }
 
-/* Allineamento per le tabelle specifiche nei modal */
+/* #7 Allineamento per le tabelle specifiche nei modal */
 .td-list {
     text-align: left;
     font-size: 0.9rem;
 }
 
-/* Footer alerts */
+/* #8 Footer alerts */
 .myDiv footer {
     margin-top: 20px;
 }
 
-/* public/css/style.css */
-
-/* Login button: subtle interaction with Blue hover */
+/* #9 Login button: subtle interaction with Blue hover */
 .btn-outline-dark:hover {
     background-color: #0d6efd !important;
-    /* Bootstrap Primary Blue */
+    /* #10 Bootstrap Primary Blue */
     border-color: #0d6efd !important;
     color: #ffffff !important;
     transition: background-color 0.3s ease;
 }
 
-/* Registration button: positive interaction with Green hover */
+/* #11 Registration button: positive interaction with Green hover */
 .btn-dark:hover {
     background-color: #198754 !important;
-    /* Bootstrap Success Green */
+    /* #12 Bootstrap Success Green */
     border-color: #198754 !important;
     color: #ffffff !important;
     transition: background-color 0.3s ease;
 }
 
-/* Definizione del colore viola del logo Radioshop */
+/* #13 Definizione del colore viola del logo Radioshop */
 :root {
     --radioshop-purple: #7C3AC1;
-    /* Viola StarUML memorizzato nelle info */
+    /* #14 Viola StarUML memorizzato nelle info */
 }
 
-/* Personalizzazione dei badge nella pagina About */
+/* #15 Personalizzazione dei badge nella pagina About */
 .about-badge {
     background-color: var(--radioshop-purple) !important;
     color: #ffffff !important;
 }
 
-/* Personalizzazione del bottone principale nella pagina About */
+/* #16 Personalizzazione del bottone principale nella pagina About */
 .btn-purple {
     background-color: var(--radioshop-purple) !important;
     border-color: var(--radioshop-purple) !important;
@@ -97,7 +95,7 @@
 
 .btn-purple:hover {
     filter: brightness(1.2);
-    /* Schiarisce leggermente al passaggio del mouse */
+    /* #17 Schiarisce leggermente al passaggio del mouse */
     color: #ffffff !important;
 }
 

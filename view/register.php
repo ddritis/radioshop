@@ -1,6 +1,5 @@
 <?php
-// view/register.php
-// Nota: Header e Footer sono caricati automaticamente dal BaseController
+// #0 view/register.php
 ?>
 
 <div class="container-sm mt-5">
@@ -20,8 +19,7 @@
                     <?php endif; ?>
 
                     <form action="index.php?page=auth&action=register" method="POST" class="needs-validation">
-
-                        <!-- Uso le classi form-control di Bootstrap per l'aspetto Radioshop -->
+                        
                         <div class="mb-3">
                             <label class="form-label fw-semibold">Nome</label>
                             <input type="text" name="first_name" class="form-control" placeholder="Inserisci il tuo nome" required>

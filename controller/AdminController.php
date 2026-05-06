@@ -1,5 +1,5 @@
 <?php
-// controller/AdminController.php
+// #0 controller/AdminController.php
 require_once 'BaseController.php';
 require_once 'model/Product.php';
 
@@ -10,9 +10,9 @@ class AdminController extends BaseController
      */
     public function dashboard()
     {
-        // PROTEZIONE ACCESSO: Verifica autorizzazione
+        // #1 Verifica autorizzazione alla dashboard di amministratore
         if (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] !== true) {
-            // Se non è admin, reindirizzo alla home (Accesso Negato)
+            // #2 Se non è admin, reindirizzo alla home (accesso negato)
             header("Location: index.php?page=home&error=unauthorized");
             exit();
         }
@@ -28,7 +28,7 @@ class AdminController extends BaseController
 
     public function add()
     {
-        $this->checkAdmin(); // Verifica autorizzazione
+        $this->checkAdmin(); // #3 Verifica autorizzazione
         $this->renderView('admin_add_product', ['pageTitle' => 'Aggiungi Prodotto']);
     }
 
@@ -37,35 +37,35 @@ class AdminController extends BaseController
         $this->checkAdmin();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            //   var_dump($_POST); 
-            //   var_dump($_FILES); 
-            //   die();
+           /*var_dump($_POST); 
+              var_dump($_FILES); 
+              die(); */
 
-            // #1 Sanitizzazione e recupero dati
+            // #4 Sanitizzazione e recupero dati
             $name = htmlspecialchars($_POST['product_name'] ?? '');
             $description = htmlspecialchars($_POST['product_description'] ?? '');
             $id_category = intval($_POST['id_category'] ?? 1);
             $price = floatval($_POST['price'] ?? 0);
             $stock = intval($_POST['stock'] ?? 0);
 
-            // #2 Gestione File Upload (Sicurezza Applicativa)
+            // #5 Gestione file upload
             $imageName = 'placeholder.png';
             if (isset($_FILES['image_file']) && $_FILES['image_file']['error'] === UPLOAD_ERR_OK) {
                 $tmpPath = $_FILES['image_file']['tmp_name'];
                 $originalName = basename($_FILES['image_file']['name']);
                 $extension = strtolower(pathinfo($originalName, PATHINFO_EXTENSION));
 
-                // Validazione estensione per sicurezza
+                // #6 Validazione estensione per sicurezza [si può fare di meglio ma il tempo è poco :-) ]
                 $allowed = ['jpg', 'jpeg', 'png', 'webp'];
                 if (in_array($extension, $allowed)) {
-                    $imageName = time() . "_" . $originalName; // Nome univoco
+                    $imageName = time() . "_" . $originalName; // #7 Nome univoco sfruttando timestamp
                     $destPath = "public/images/products/" . $imageName;
                     move_uploaded_file($tmpPath, $destPath);
                 }
             }
 
 
-            // #3 Persistenza nel DB (Model)
+            // #8 inserimento nel DB (Model)
             $productModel = new Product();
             if ($productModel->insert($name, $price, $stock, $imageName, $id_category, $description)) {
                 header("Location: index.php?page=admin&action=dashboard&status=added");
@@ -82,14 +82,14 @@ class AdminController extends BaseController
      */
     public function delete()
     {
-        $this->checkAdmin(); // solo gli admin possono eliminare
+        $this->checkAdmin(); // #9 Solo gli admin possono eliminare
 
-        $id = intval($_GET['id'] ?? 0); // Validazione dati: forziamo il tipo intero
+        $id = intval($_GET['id'] ?? 0); // #10 Validazione dati: forzo il tipo intero
 
         if ($id > 0) {
             $productModel = new Product();
             if ($productModel->delete($id)) {
-                // Reindirizzamento con stato per la verifica funzionale
+                // #11 Reindirizzamento con stato di uscita
                 header("Location: index.php?page=admin&action=dashboard&status=deleted");
             } else {
                 header("Location: index.php?page=admin&action=dashboard&error=db");

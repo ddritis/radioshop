@@ -1,3 +1,4 @@
+<!-- #0 view/partials/header.php -->
 <!DOCTYPE html>
 <html lang="it">
 
@@ -7,32 +8,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($pageTitle ?? 'RADIOSHOP'); ?></title>
 
-    <!-- 1. Bootstrap CSS (Caricamento locale per funzionamento offline) -->
+    <!-- #1 Bootstrap CSS (Caricamento locale per funzionamento offline) -->
     <link href="public/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- 2. CSS personalizzato (Caricato dopo per sovrascrivere Bootstrap) -->
+    <!-- #2 CSS personalizzato (Caricato dopo per sovrascrivere Bootstrap) -->
     <link rel="stylesheet" href="public/css/style.css">
 </head>
 
 <body>
 
-    <!-- navbar container -->
+    <!-- #3 navbar container -->
     <nav class="navbar navbar-expand-lg bg-warning mb-3">
         <div class="container-lg">
-            <!-- Logo e Brand -->
+            <!-- #4 logo e brand -->
             <a class="navbar-brand d-flex align-items-center" href="index.php?page=home">
                 <img src="public/images/avalonia_tux.svg" alt="Logo" width="30" height="24">
                 <span class="ms-2 fw-bold">RADIOSHOP</span>
             </a>
 
-            <!-- Pulsante Hamburger (Toggler) -->
+            <!-- #5 pulsante Hamburger (Toggler) -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarRadioshop" aria-controls="navbarRadioshop"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Contenitore Collassabile -->
+            <!-- #6 Contenitore collassabile -->
             <div class="collapse navbar-collapse" id="navbarRadioshop">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -62,7 +63,7 @@
                             <i class="bi bi-person-circle"></i> Area Personale
                         </a>
                     </li>
-                    <!-- Link Amministrazione: visibile solo se l'utente ha il ruolo admin -->
+                    <!-- #7 Link amministrazione visibile solo se l'utente ha il ruolo admin -->
                     <?php if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] === true): ?>
                         <li class="nav-item">
                             <a class="nav-link fw-bold text-danger" href="index.php?page=admin&action=dashboard">
@@ -72,27 +73,27 @@
                     <?php endif; ?>
                 </ul>
 
-                <!-- Autenticazione con protezione XSS (Sanitizzazione input) -->
+                <!-- #8 Autenticazione con protezione XSS (sanitizzazione input) -->
                 <div class="d-flex align-items-center mt-3 mt-lg-0">
                     <?php if (isset($_SESSION['userId'])): ?>
 
-                        <!-- Link al Profilo Utente (user_profile.php) -->
+                        <!-- #9 Link al profilo utente (user_profile.php) -->
                         <span class="me-3 small">Ciao,
                             <a href="index.php?page=user&action=orders" class="text-dark text-decoration-none fw-bold text-uppercase" title="Area Personale">
                                 👤 <?php echo htmlspecialchars($_SESSION['userName']); ?>
                             </a>
                         </span>
 
-                        <!-- Pulsante Carrello (cart_view.php) -->
+                        <!-- #10 Pulsante Carrello (cart_view.php) -->
                         <a href="index.php?page=cart&action=index" class="btn btn-outline-dark btn-sm me-3 d-flex align-items-center">
                             🛒 <span class="ms-1 fw-bold">Carrello</span>
                         </a>
 
-                        <!-- Logout -->
+                        <!-- #11 Logout -->
                         <a href="index.php?page=auth&action=logout" class="btn btn-danger btn-sm shadow-sm">Logout</a>
 
                     <?php else: ?>
-                        <!-- Utente non loggato -->
+                        <!-- #12 Utente non loggato -->
                         <a href="index.php?page=auth&action=login" class="btn btn-outline-dark me-2 btn-sm shadow-sm">Accedi</a>
                         <a href="index.php?page=auth&action=register" class="btn btn-dark btn-sm shadow-sm">Registrati</a>
                     <?php endif; ?>
@@ -100,13 +101,12 @@
             </div>
         </div>
     </nav>
-    <?php
-    // Cookie
+    <!-- #13 GDPR Cookie Banner -->
+    <?php    
     if (isset($_COOKIE['gdpr_accepted']) && $_COOKIE['gdpr_accepted'] === 'true') {
-        // NOP
+        // #14 NOP
     }
     ?>
-    <!-- GDPR Cookie Banner -->
     <div id="cookieConsent"
         class="bg-danger text-white py-3 fixed-bottom border-top border-danger shadow-lg"
         style="display: none; z-index: 1050;">

@@ -1,11 +1,6 @@
-<?php
-// view/whoareus.php
-// Header and Footer are managed by BaseController
-?>
-
+<!-- #0 view/whoareus.php -->
 <main class="container-lg my-5">
-
-    <!-- Hero Section -->
+    
     <div class="row align-items-center mb-5 pb-4 border-bottom">
         <div class="col-lg-6 mb-4 mb-lg-0">
             <h1 class="display-4 fw-bold text-uppercase mb-3">Chi Siamo</h1>
@@ -18,7 +13,7 @@
             </p>
         </div>
         <div class="col-lg-6 text-center">
-            <!-- SVG illustration for Lab Concept -->
+            <!-- #1 immagine SVG per illustrazione laboratorio -->
             <div class="p-5 bg-light rounded shadow-sm border border-secondary">
                 <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" fill="#ffc107" class="bi bi-motherboard" viewBox="0 0 16 16">
                     <path d="M11.5 2a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-1 0v-11a.5.5 0 0 1 .5-.5M14 2a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M2 2a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-1 0v-11a.5.5 0 0 1 .5-.5M4.5 2a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5" />
@@ -31,7 +26,7 @@
         </div>
     </div>
 
-    <!-- Core Values Section -->
+    <!-- #2 Sezione principale -->
     <div class="row g-4 mt-2">
         <div class="col-md-4">
             <div class="card h-100 shadow-sm border-warning no-zoom">

@@ -1,6 +1,4 @@
-<?php
-// view/home.php
-?>
+<!-- #0 view/home.php -->
 <header class="pricing-header p-3 pb-md-4 mx-auto text-center">
     <h1 class="display-4 fw-normal"><?php echo htmlspecialchars($pageTitle); ?></h1>
     <p class="fs-5 text-body-secondary">Importatore ufficiale per l'Italia di RaspberryPi e OrangePi.</p>
@@ -22,7 +20,7 @@
 
                         <?php
                         // Gestione dinamica del percorso (Architettura Web)
-                        // Usiamo trim() per evitare che spazi vuoti nel DB rompano il confronto
+                        // Uso trim() per evitare che spazi vuoti nel DB rompano il confronto
                         $dbFileName = trim($p['image_path']);
 
                         if (!empty($dbFileName) && $dbFileName !== 'placeholder.png') {
