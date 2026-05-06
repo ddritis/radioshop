@@ -3,7 +3,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6 col-lg-4">
             <!-- La card crea il contenitore visivo tipico dei sistemi professionali -->
-            <div class="card shadow-sm border-warning">
+            <div class="card shadow-sm border-warning no-zoom">
                 <div class="card-header bg-warning text-center py-3">
                     <h1 class="h4 mb-0 fw-bold text-uppercase">Accedi al tuo account</h1>
                 </div>
