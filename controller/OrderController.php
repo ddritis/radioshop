@@ -40,7 +40,7 @@ class OrderController extends BaseController
             // Registro l'ordine nel database tramite il Model
             $orderId = $orderModel->createOrder($userId, $total, $items);
         } catch (Exception $e) {
-            if ($e->getMessage() === "No address found for customer") {
+            if ($e->getMessage() === "Missing customer profile data") {
                 header("Location: index.php?page=user&action=profile&error=missing_profile_data");
                 exit();
             }

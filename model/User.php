@@ -124,4 +124,93 @@ class User
         $stmt = $this->db->prepare($sql);
         return $stmt->execute(['id' => $id]);
     }
+
+    public function saveProfileData($userId, $data)
+    {
+        try {
+            $this->db->beginTransaction();
+
+            // Recupero il profilo cliente
+            $sqlProfile = "SELECT id_profile 
+                       FROM customer_profiles 
+                       WHERE id_customer = :user_id";
+
+            $stmtProfile = $this->db->prepare($sqlProfile);
+            $stmtProfile->execute(['user_id' => $userId]);
+            $profile = $stmtProfile->fetch(PDO::FETCH_ASSOC);
+
+            if (!$profile) {
+                throw new Exception("Customer profile not found");
+            }
+
+            $profileId = $profile['id_profile'];
+
+            // Aggiorno il numero di telefono
+            $sqlUpdateProfile = "UPDATE customer_profiles
+                             SET phone = :phone
+                             WHERE id_profile = :profile_id";
+
+            $stmtUpdateProfile = $this->db->prepare($sqlUpdateProfile);
+            $stmtUpdateProfile->execute([
+                'phone'      => $data['phone'],
+                'profile_id' => $profileId
+            ]);
+
+            // Verifico se esiste già un indirizzo per il profilo
+            $sqlAddress = "SELECT id_address
+                       FROM addresses
+                       WHERE id_profile = :profile_id";
+
+            $stmtAddress = $this->db->prepare($sqlAddress);
+            $stmtAddress->execute(['profile_id' => $profileId]);
+            $address = $stmtAddress->fetch(PDO::FETCH_ASSOC);
+
+            if ($address) {
+                // Aggiorno indirizzo esistente
+                $sqlUpdateAddress = "UPDATE addresses
+                                 SET street = :street,
+                                     building_number = :building_number,
+                                     postal_code = :postal_code,
+                                     city = :city,
+                                     province = :province,
+                                     country = :country
+                                 WHERE id_address = :address_id";
+
+                $stmtUpdateAddress = $this->db->prepare($sqlUpdateAddress);
+                $stmtUpdateAddress->execute([
+                    'street'          => $data['street'],
+                    'building_number' => $data['building_number'],
+                    'postal_code'     => $data['postal_code'],
+                    'city'            => $data['city'],
+                    'province'        => $data['province'],
+                    'country'         => $data['country'],
+                    'address_id'      => $address['id_address']
+                ]);
+            } else {
+                // Inserisco nuovo indirizzo
+                $sqlInsertAddress = "INSERT INTO addresses 
+                                 (id_profile, street, building_number, postal_code, city, province, country)
+                                 VALUES 
+                                 (:profile_id, :street, :building_number, :postal_code, :city, :province, :country)";
+
+                $stmtInsertAddress = $this->db->prepare($sqlInsertAddress);
+                $stmtInsertAddress->execute([
+                    'profile_id'       => $profileId,
+                    'street'           => $data['street'],
+                    'building_number'  => $data['building_number'],
+                    'postal_code'      => $data['postal_code'],
+                    'city'             => $data['city'],
+                    'province'         => $data['province'],
+                    'country'          => $data['country']
+                ]);
+            }
+
+            $this->db->commit();
+            return true;
+        } catch (Exception $e) {
+            $this->db->rollBack();
+            error_log("Errore aggiornamento profilo utente ID $userId: " . $e->getMessage());
+            return false;
+        }
+    }
 }

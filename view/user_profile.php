@@ -38,7 +38,7 @@
                                 ?>
                             </span>
 
-                            <a href="index.php?page=user&action=editPhone" class="btn btn-sm btn-outline-primary">
+                            <a href="index.php?page=user&action=editProfile" class="btn btn-sm btn-outline-primary">
                                 Modifica
                             </a>
                         </div>
@@ -65,7 +65,7 @@
                                 ?>
                             </span>
 
-                            <a href="index.php?page=user&action=editAddress" class="btn btn-sm btn-outline-primary">
+                            <a href="index.php?page=user&action=editProfile" class="btn btn-sm btn-outline-primary">
                                 Modifica
                             </a>
                         </div>
