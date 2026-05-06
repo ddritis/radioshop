@@ -15,7 +15,7 @@ class Order
      */
     public function createOrder($userId, $totalAmount, $items)
     {
-        // 0. Recupero indirizzo del cliente
+        // #0 Recupero indirizzo del cliente
         $stmt = $this->db->prepare("
             SELECT a.id_address
             FROM customer_profiles cp
@@ -28,10 +28,10 @@ class Order
 
 
         if (!$address) {
-            throw new Exception("No address found for customer");
+            throw new Exception("Missing customer profile data");
         }
 
-        // 1. Inserimento dell'ordine
+        // #1 Inserimento dell'ordine
         $sqlOrder = "INSERT INTO orders (id_customer, id_address, status) 
              VALUES (:uid, :address_id, 'paid')";
         $stmtOrder = $this->db->prepare($sqlOrder);
@@ -42,7 +42,7 @@ class Order
 
         $orderId = $this->db->lastInsertId();
 
-        // 2. Spostamento prodotti nel dettaglio ordine
+        // #2 Spostamento prodotti nel dettaglio ordine
         foreach ($items as $item) {
             $sqlItem = "INSERT INTO order_items (id_order, id_product, quantity, unit_price) 
                     VALUES (:oid, :pid, :qty, :price)";
@@ -54,7 +54,7 @@ class Order
             ]);
         }
 
-        // 3. Generazione fattura (Qui total_amount esiste nello schema!)
+        // #3 Generazione fattura (Qui total_amount esiste nello schema!)
         $invoiceNum = "INV-" . date("Ymd") . "-" . $orderId;
         $sqlInv = "INSERT INTO invoices (id_order, invoice_number, total_amount) 
                VALUES (:oid, :num, :total)";
@@ -64,7 +64,7 @@ class Order
             'total' => $totalAmount
         ]);
 
-        // 4. Svuotamento del carrello
+        // #4 Svuotamento del carrello
         $sqlClear = "DELETE ci FROM cart_items ci 
                  JOIN carts c ON ci.id_cart = c.id_cart 
                  WHERE c.id_customer = :uid";

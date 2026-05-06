@@ -1,7 +1,13 @@
 <main class="container my-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card shadow-sm border-0">
+            <?php if (isset($_GET['error']) && $_GET['error'] === 'missing_profile_data'): ?>
+                <div class="alert alert-warning">
+                    Non hai ancora inserito il tuo indirizzo e il numero di telefono.
+                    Inseriscili cliccando il tasto <b>modifica</b>.
+                </div>
+            <?php endif; ?>
+            <div class="card shadow-sm border-0 no-zoom">
                 <div class="card-header bg-purple text-white py-3">
                     <h4 class="mb-0">👋 Benvenuto, <?php echo htmlspecialchars($user['first_name'] ?? $user['username']); ?></h4>
                 </div>
@@ -21,29 +27,47 @@
                     </div>
                     <div class="row mb-4">
                         <div class="col-sm-4 text-muted">Telefono:</div>
-                        <div class="col-sm-8 fw-bold">
-                            <?php
-                            // telefono utente
-                            if (!empty($user['phone'])) {
-                                echo htmlspecialchars($user['phone']);
-                            } else {
-                                echo htmlspecialchars('phone_placeholder');
-                            }
-                            ?>
+                        <div class="col-sm-8 fw-bold d-flex justify-content-between align-items-center">
+                            <span>
+                                <?php
+                                if (!empty($user['phone'])) {
+                                    echo htmlspecialchars($user['phone']);
+                                } else {
+                                    echo '<span class="text-danger">Telefono non inserito</span>';
+                                }
+                                ?>
+                            </span>
+
+                            <a href="index.php?page=user&action=editPhone" class="btn btn-sm btn-outline-primary">
+                                Modifica
+                            </a>
                         </div>
                     </div>
 
                     <div class="row mb-4">
                         <div class="col-sm-4 text-muted">Indirizzo:</div>
-                        <div class="col-sm-8 fw-bold">
-                            <?php
-                            // indirizzo utente
-                            if (!empty($user['street'])) {
-                                echo htmlspecialchars($user['street']);
-                            } else {
-                                echo htmlspecialchars('address_placeholder');
-                            }
-                            ?>
+                        <div class="col-sm-8 fw-bold d-flex justify-content-between align-items-center">
+                            <span>
+                                <?php
+                                $addressParts = array_filter([
+                                    trim(($user['street'] ?? '') . ' ' . ($user['building_number'] ?? '')),
+                                    $user['postal_code'] ?? '',
+                                    $user['city'] ?? '',
+                                    $user['province'] ?? '',
+                                    $user['country'] ?? ''
+                                ]);
+
+                                if (!empty($addressParts)) {
+                                    echo htmlspecialchars(implode(', ', $addressParts));
+                                } else {
+                                    echo '<span class="text-danger">Indirizzo non inserito</span>';
+                                }
+                                ?>
+                            </span>
+
+                            <a href="index.php?page=user&action=editAddress" class="btn btn-sm btn-outline-primary">
+                                Modifica
+                            </a>
                         </div>
                     </div>
 

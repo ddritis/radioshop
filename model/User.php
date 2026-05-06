@@ -13,22 +13,22 @@ class User
     public function register($email, $password, $firstName, $lastName)
     {
         try {
-            // 1. Eseguo l'hashing della password (LA SICUREZZA PRIMA DI TUTTO!)
+            // #1 Eseguo l'hashing della password come abbiamo visto in TPSIT
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-            // 2. Inserisco i dati nella tabella 'users'
+            // #2 Inserisco i dati nella tabella 'users'
             $sqlUser = "INSERT INTO users (email, password_hash) VALUES (:email, :password)";
             $stmtUser = $this->db->prepare($sqlUser);
             $stmtUser->execute(['email' => $email, 'password' => $hashedPassword]);
 
             $userId = $this->db->lastInsertId();
 
-            // 3. Inserisco l'ID nella tabella 'customers'
+            // #3 Inserisco l'ID nella tabella 'customers'
             $sqlCust = "INSERT INTO customers (id_customer) VALUES (:id)";
             $stmtCust = $this->db->prepare($sqlCust);
             $stmtCust->execute(['id' => $userId]);
 
-            // 4. Inserisco i dettagli anagrafici nella tabella 'customer_profiles'
+            // #4 Inserisco i dettagli anagrafici nella tabella 'customer_profiles'
             $sqlProf = "INSERT INTO customer_profiles (id_customer, first_name, last_name) VALUES (:id, :f_name, :l_name)";
             $stmtProf = $this->db->prepare($sqlProf);
             $stmtProf->execute([
@@ -95,7 +95,7 @@ class User
     }
 
     /**
-     * Recupera i dati di un utente specifico tramite il suo ID univoco 🔍
+     * Recupera i dati di un utente specifico tramite il suo ID univoco
      * Implementazione dell'astrazione dei dati per il profilo.
      */
     public function getUserById($id)
@@ -103,7 +103,7 @@ class User
         // Recupero l'email (che funge da username nel sistema) 
         // e i dettagli dal profilo
         $sql = "SELECT u.id_user, u.email, cp.first_name, cp.last_name, u.created_at,
-         cp.phone, ad.street, ad.postal_code, ad.city, ad.province, ad.country  
+         cp.phone, ad.street, ad.postal_code, ad.city, ad.province, ad.country, ad.building_number
             FROM users u
             LEFT JOIN customer_profiles cp ON u.id_user = cp.id_customer
             LEFT JOIN addresses ad ON cp.id_profile = ad.id_profile
@@ -116,7 +116,7 @@ class User
     }
 
     /**
-     * Metodo per l'eliminazione del record (richiesto dal Controller) 🗑️
+     * Metodo per l'eliminazione del record (richiesto dal Controller)
      */
     public function deleteUser($id)
     {

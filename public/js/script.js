@@ -24,19 +24,19 @@ function goto5() {
 
 
     document.addEventListener("DOMContentLoaded", function() {
-        // 1. Funzione per leggere l'array dei cookie del browser
+        // #1 Funzione per leggere l'array dei cookie del browser
         function getCookie(name) {
             let match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
             if (match) return match[2];
             return null;
         }
 
-    // 2. Logica di visualizzazione
+    // #2 Logica di visualizzazione
     if (!getCookie("gdpr_accepted")) {
         document.getElementById("cookieConsent").style.display = "block";
     }
 
-    // 3. Gestione evento click
+    // #3 Gestione evento click
     document.getElementById("btnAcceptCookies").addEventListener("click", function() {
         let expires = new Date();
     // Imposto la scadenza a 30 giorni

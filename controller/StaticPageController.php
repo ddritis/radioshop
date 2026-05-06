@@ -43,12 +43,12 @@ class StaticPageController extends BaseController
     public function submitContact()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // 🔐 SICUREZZA: Sanitizzazione input
+            //  Sanitizzazione input
             $name    = htmlspecialchars(strip_tags($_POST['name'] ?? ''));
             $email   = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
             $message = htmlspecialchars(strip_tags($_POST['message'] ?? ''));
 
-            // 🛠️ VALIDAZIONE: Verifica funzionale dei dati
+            // Verifica funzionale dei dati
             if (empty($name) || !filter_var($email, FILTER_VALIDATE_EMAIL) || empty($message)) {
                 header("Location: index.php?page=staticPage&action=contact&status=error");
                 exit();

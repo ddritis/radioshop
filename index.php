@@ -2,16 +2,16 @@
 // index.php
 session_start();
 
-// 1. Load Core Components
+// #1 Load Core Components
 require_once 'model/DbConfig.php';
 require_once 'model/Database.php';
 require_once 'controller/BaseController.php';
 
-// 2. Routing Configuration
+// #2 Routing Configuration
 $page   = $_GET['page']   ?? 'home';
 $action = $_GET['action'] ?? 'index';
 
-// 3. Dynamic Controller Mapping
+// #3 Dynamic Controller Mapping
 // Example: 'auth' -> 'AuthController'
 $controllerName = ucfirst($page) . 'Controller';
 $controllerFile = "controller/$controllerName.php";
@@ -30,7 +30,7 @@ if (file_exists($controllerFile)) {
 
         if (method_exists($controllerObject, $action)) {
 
-            // 4. Centralized Security Layer
+            // #4 Centralized Security Layer
             // If the page starts with 'admin', check privileges
             if (str_starts_with($page, 'admin')) {
                 if (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] !== true) {
@@ -39,7 +39,7 @@ if (file_exists($controllerFile)) {
                 }
             }
 
-            // 5. Dispatch the request
+            // #5 Dispatch the request
             $controllerObject->$action();
         } else {
             // Se l'azione non esiste, usiamo la pagina under-construction

@@ -36,8 +36,17 @@ class OrderController extends BaseController
             $total += $item['subtotal'];
         }
 
-        // Registro l'ordine nel database tramite il Model
-        $orderId = $orderModel->createOrder($userId, $total, $items);
+        try {
+            // Registro l'ordine nel database tramite il Model
+            $orderId = $orderModel->createOrder($userId, $total, $items);
+        } catch (Exception $e) {
+            if ($e->getMessage() === "No address found for customer") {
+                header("Location: index.php?page=user&action=profile&error=missing_profile_data");
+                exit();
+            }
+
+            throw $e;
+        }
 
         if ($orderId) {
             // Se l'ordine è creato con successo, mostro la pagina di conferma
@@ -50,7 +59,7 @@ class OrderController extends BaseController
 
     public function invoice()
     {
-        // 🔐 Sicurezza applicativa: Accesso solo ad utenti autenticati
+        // Sicurezza applicativa: Accesso solo ad utenti autenticati
         if (!isset($_SESSION['userId'])) {
             header("Location: index.php?page=auth&action=login");
             exit();
@@ -69,10 +78,10 @@ class OrderController extends BaseController
             exit();
         }
 
-        // 2. RECUPERO PRODOTTI DELL'ORDINE 🛒
+        // #2 RECUPERO PRODOTTI DELL'ORDINE
         $items = $orderModel->getOrderItems($orderId);
 
-        // 🎨 Presentation Layer: Caricamento della View specifica
+        // Presentation Layer: Caricamento della View specifica
         $this->renderView('order_invoice', [
             'pageTitle' => 'Dettaglio Fattura #' . $order['invoice_number'],
             'order'     => $order,

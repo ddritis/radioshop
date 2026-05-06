@@ -2,7 +2,7 @@
 // view/product_detail.php
 // Assumiamo che $product sia stato recuperato dal Controller tramite il Model
 
-// 1. Logica di routing degli asset (come fatto in homepage)
+// #1 Logica di routing degli asset (come fatto in homepage)
 $dbFileName = isset($product['image_path']) ? trim($product['image_path']) : '';
 
 if (!empty($dbFileName) && $dbFileName !== 'placeholder.png') {

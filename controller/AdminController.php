@@ -41,14 +41,14 @@ class AdminController extends BaseController
             //   var_dump($_FILES); 
             //   die();
 
-            // 1. Sanitizzazione e recupero dati
+            // #1 Sanitizzazione e recupero dati
             $name = htmlspecialchars($_POST['product_name'] ?? '');
             $description = htmlspecialchars($_POST['product_description'] ?? '');
             $id_category = intval($_POST['id_category'] ?? 1);
             $price = floatval($_POST['price'] ?? 0);
             $stock = intval($_POST['stock'] ?? 0);
 
-            // 2. Gestione File Upload (Sicurezza Applicativa)
+            // #2 Gestione File Upload (Sicurezza Applicativa)
             $imageName = 'placeholder.png';
             if (isset($_FILES['image_file']) && $_FILES['image_file']['error'] === UPLOAD_ERR_OK) {
                 $tmpPath = $_FILES['image_file']['tmp_name'];
@@ -65,7 +65,7 @@ class AdminController extends BaseController
             }
 
 
-            // 3. Persistenza nel DB (Model)
+            // #3 Persistenza nel DB (Model)
             $productModel = new Product();
             if ($productModel->insert($name, $price, $stock, $imageName, $id_category, $description)) {
                 header("Location: index.php?page=admin&action=dashboard&status=added");
@@ -82,7 +82,7 @@ class AdminController extends BaseController
      */
     public function delete()
     {
-        $this->checkAdmin(); // 🔐 Sicurezza: solo gli admin possono eliminare
+        $this->checkAdmin(); // solo gli admin possono eliminare
 
         $id = intval($_GET['id'] ?? 0); // Validazione dati: forziamo il tipo intero
 

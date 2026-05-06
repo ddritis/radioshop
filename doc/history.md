@@ -31,6 +31,11 @@ Implementazione finale del sistema **Flexbox** di Bootstrap per garantire che tu
 
 ![Evoluzione 04](screenshot04.png)
 
+### 5. Implementazione inserimento/modifica anagrafica
+Implementazione della modifica dell'indirizzo e del numero di telefono, obbligatoria per effettuare il primo acquisto.
+
+![Evoluzione 05](screenshot07.png)
+
 ---
 
 ## 🛠️ Note Tecniche (TPSIT)

@@ -7,7 +7,7 @@ require_once 'model/Order.php';
 class UserController extends BaseController
 {
     /**
-     * Mostra la dashboard dell'area personale 👤
+     * Mostra la dashboard dell'area personale
      */
     public function profile()
     {
@@ -26,7 +26,7 @@ class UserController extends BaseController
     }
 
     /**
-     * Gestisce lo storico ordini 📦
+     * Gestisce lo storico ordini
      */
     public function orders()
     {
@@ -45,7 +45,7 @@ class UserController extends BaseController
     }
 
     /**
-     * Eliminazione account e distruzione sessione ⚠️
+     * Eliminazione account e distruzione sessione
      */
     public function deleteAccount()
     {
