@@ -18,7 +18,7 @@ class Database
             $config = new DbConfig();
 
             // #3 Definizione del Data Source Name (DSN)
-            $dsn = "mysql:host={$config->host};dbname={$config->dbName};charset=utf8mb4";
+            $dsn = "mysql:host={$config->host};port={$config->port};dbname={$config->dbName};charset=utf8mb4";
 
             // #4 Opzioni di configurazione PDO per migliorare sicurezza e usabilità
             $options = [

@@ -4,6 +4,7 @@
 class DbConfig
 {
     public $host;
+    public $port;
     public $username;
     public $password;
     public $dbName;
@@ -14,7 +15,7 @@ class DbConfig
      */
     public function __construct()
     {
-        $path = 'config/database.json';
+        $path = dirname(__DIR__) . '/config/database.json';
 
         try {
             // #1 Verifico se il file di configurazione esiste nel percorso stabilito.
@@ -25,13 +26,14 @@ class DbConfig
             $jsonContent = file_get_contents($path);
             $config = json_decode($jsonContent, true);
 
-            // #2 Verifico se la decodifica JSON è fallita o se mancano le chiavi obbligatorie (host, database).
-            if ($config === null || !isset($config['host'], $config['database'])) {
+            // #2 Verifico se la decodifica JSON è fallita o se mancano le chiavi obbligatorie (host, database, port).
+            if ($config === null || !isset($config['host'], $config['port'],  $config['database'])) {
                 throw new Exception("Formato JSON non valido o corrotto in: " . $path);
             }
 
             // #3 Assegno i valori estratti alle proprietà della classe per renderli disponibili.
             $this->host = $config['host'];
+            $this->port = $config['port'];
             $this->username = $config['username'];
             $this->password = $config['password'];
             $this->dbName = $config['database'];
